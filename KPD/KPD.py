@@ -1,4 +1,5 @@
 import numpy as np
+import utils
 
 
 # data - dictionary of all important data for calculation
@@ -41,17 +42,19 @@ def calc_efficiency_and_write_to_file(data):
     Qr = data["we"] / etaEATEC + (data["etatsn"] * data["Qsp"]) / etaTATEC
     Gtk = data["Qsp"] / (data["isp2vih"] - data["isp2vh"])
 
-    #Write to file
+    # Write to file
     out_file = open("KPDOut.txt", "w")
 
     out_file.write("Relative steam consumption\n")
     out_file.write("---------------------------\n")
     out_file.write("gpg2   gpik    g0   g1      g2      g3      gk      gd      gs      gs1     gs2     gsp\n")
-    out_file.write("1       0      1   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f\n\n" % (g1, g2, g3, gk, gd, gs, gs1, gs2, gsp))
+    out_file.write("1       0      1   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f\n\n" % (
+        g1, g2, g3, gk, gd, gs, gs1, gs2, gsp))
     out_file.write("Absolute steam consumption\n")
     out_file.write("---------------------------\n")
     out_file.write("Gpg2   Gpik    G0      G1       G2      G3       Gk      Gd      Gs      Gs1      Gs2      Gsp\n")
-    out_file.write("%.3f   0   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f\n\n" % (G0, G0, G1, G2, G3, Gk, Gd, Gs, Gs1, Gs2, Gsp))
+    out_file.write("%.3f   0   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f   %.3f\n\n" % (
+        G0, G0, G1, G2, G3, Gk, Gd, Gs, Gs1, Gs2, Gsp))
     out_file.write("Efficiency and heat power of reactor\n")
     out_file.write("---------------------------\n")
     out_file.write("etaE   etaEATEC etaTATEC    Qr               Gtk\n")
@@ -60,18 +63,6 @@ def calc_efficiency_and_write_to_file(data):
     out_file.close()
 
 
-def fill_dict(dict):
-    file = open('KPDinput.txt', 'r')
-
-    for line in file:
-        splited_line = line.split(":")
-        key = splited_line[0].strip()
-        value = float(splited_line[1].strip())
-        dict[key] = value
-
-    file.close()
-
-
 data = {}
-fill_dict(data)
+utils.fill_dict_from_file(data, 'KPDinput.txt')
 calc_efficiency_and_write_to_file(data)

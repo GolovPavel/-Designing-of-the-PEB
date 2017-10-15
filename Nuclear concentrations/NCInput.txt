@@ -1,0 +1,25 @@
+N0UO2: 0.022e24
+dTop: 6.8
+deltaTop: 0.5
+%PuO2: 5
+%1richU5: 12
+%1richPu9: 12
+%2richU5: 10
+%2richPu9: 10
+
+roB4C: 2.52
+dP: 6.8
+deltaP: 0.5
+MB4C: 55.255
+
+roGd2O3: 7.41
+dSVP1: 6.8
+dSVP2: 4.5
+deltaSVP: 0.5
+MGd2O3: 362.5
+
+roH2O: 0.68
+MH2O: 18
+
+roZr: 6.5
+MZr: 91.224
