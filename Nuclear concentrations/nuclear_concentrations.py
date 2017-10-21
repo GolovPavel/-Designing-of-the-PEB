@@ -9,28 +9,32 @@ def calc_nuclear_concentrations_and_write_to_file(data):
 
     N0Zr = data['roZr'] * Na / data['MZr']
 
-    # UO2+PuO2 - MOX fuel
+    # UO2+PuO2 - MOX fuel TODO
     Stv = math.pi * data['dTop'] ** 2 / 4
     STop = math.pi * (data['dTop'] - 2 * data['deltaTop']) ** 2 / 4
     SOb = math.pi * (data['dTop'] ** 2 - (data['dTop'] - 2 * data['deltaTop']) ** 2) / 4
     NUO2 = data["N0UO2"] * (STop / Stv)
     NZrTop = N0Zr * SOb / Stv
     NOtop = 2 * NUO2
-    NPuO2 = NUO2 * data["%PuO2"] / 100
-    NUO2 = NUO2 * (1 - data["%PuO2"] / 100)
-    N1U235 = NUO2 * data["%1richU5"] / 100
-    N1U238 = NUO2 * (1 - data["%1richU5"]) / 100
-    N1Pu239 = NPuO2 * data["%1richPu9"] / 100
-    N1Pu240 = NPuO2 * (1 - data["%1richPu9"]) / 100
-    N2U235 = NUO2 * data["%2richU5"] / 100
-    N2U238 = NUO2 * (1 - data["%2richU5"]) / 100
-    N2Pu239 = NPuO2 * data["%2richPu9"] / 100
-    N2Pu240 = NPuO2 * (1 - data["%2richPu9"]) / 100
+    N1PuO2 = NUO2 * data["%1PuO2"] / 100
+    N2PuO2 = NUO2 * data["%2PuO2"] / 100
+    N1UO2 = NUO2 * (100 - data["%1PuO2"] / 100)
+    N2UO2 = NUO2 * (100 - data["%2PuO2"] / 100)
+    N1U238 = N1UO2
+    N2U238 = N2UO2
+    N1Pu239 = N1PuO2 * data["%richPu39"] / 100
+    N1Pu240 = N1PuO2 * data["%richPu40"] / 100
+    N1Pu241 = N1PuO2 * data["%richPu41"] / 100
+    N2Pu239 = N2PuO2 * data["%richPu39"] / 100
+    N2Pu240 = N2PuO2 * data["%richPu40"] / 100
+    N2Pu241 = N2PuO2 * data["%richPu41"] / 100
     out.write("=============================\n")
     out.write("Fuel: UO2 + PuO2")
-    out.write("\nN1U235: %.3e\nN1U238: %.3e\nN1Pu239: %.3e\nN1Pu240: %.3e\nN2U235: %.3e\nN2U238: %.3e\nN2Pu239: %.3e\nN2Pu240: %.3e\nNO: %.3e\nNZr: %.3e"
-              % (N1U235, N1U238, N1Pu239, N1Pu240, N2U235, N2U238, N2Pu239, N2Pu240, NOtop, NZrTop))
-    out.write("\n=============================\n")
+    out.write("\nNOTop: %.3e\nNZrTop: %.3e\n\nN1U238: %.3e\nN1Pu239: %.3e\nN1Pu240: %.3e\nN1Pu241: %.3e\n"
+              % (NOtop, NZrTop, N1U238, N1Pu239, N1Pu240, N1Pu241))
+    out.write("\nN2U238: %.3e\nN2Pu239: %.3e\nN2Pu240: %.3e\nN2Pu241: %.3e\n"
+              % (N2U238, N2Pu239, N2Pu240, N2Pu241))
+    out.write("=============================\n")
 
     # H2O - moderator
     N0H2O = data['roH2O'] * Na / data['MH2O']

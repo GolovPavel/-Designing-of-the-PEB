@@ -57,7 +57,7 @@ def calc_efficiency_and_write_to_file(data):
         G0, G0, G1, G2, G3, Gk, Gd, Gs, Gs1, Gs2, Gsp))
     out_file.write("Efficiency and heat power of reactor\n")
     out_file.write("---------------------------\n")
-    out_file.write("etaE   etaEATEC etaTATEC    Qr               Gtk\n")
+    out_file.write("etaE   etaEATEC    etaTATEC    Qr            Gtk\n")
     out_file.write("%.3f    %.3f       %.3f   %.3e   %.3e" % (etaE, etaEATEC, etaTATEC, Qr, Gtk))
 
     out_file.close()

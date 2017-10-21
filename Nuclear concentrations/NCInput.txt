@@ -1,11 +1,11 @@
 N0UO2: 0.022e24
 dTop: 6.8
 deltaTop: 0.5
-%PuO2: 5
-%1richU5: 12
-%1richPu9: 12
-%2richU5: 10
-%2richPu9: 10
+%1PuO2: 14
+%2PuO2: 12
+%richPu39: 12
+%richPu40: 10
+%richPu41: 10
 
 roB4C: 2.52
 dP: 6.8

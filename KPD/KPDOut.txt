@@ -10,5 +10,5 @@ Gpg2   Gpik    G0      G1       G2      G3       Gk      Gd      Gs      Gs1    
 
 Efficiency and heat power of reactor
 ---------------------------
-etaE   etaEATEC etaTATEC    Qr               Gtk
+etaE   etaEATEC    etaTATEC    Qr            Gtk
 0.345    0.333       0.941   1.353e+08   1.147e+02
