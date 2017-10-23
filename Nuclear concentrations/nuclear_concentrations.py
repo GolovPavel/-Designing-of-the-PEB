@@ -9,7 +9,7 @@ def calc_nuclear_concentrations_and_write_to_file(data):
 
     N0Zr = data['roZr'] * Na / data['MZr']
 
-    # UO2+PuO2 - MOX fuel TODO
+    # UO2+PuO2 - MOX fuel
     Stv = math.pi * data['dTop'] ** 2 / 4
     STop = math.pi * (data['dTop'] - 2 * data['deltaTop']) ** 2 / 4
     SOb = math.pi * (data['dTop'] ** 2 - (data['dTop'] - 2 * data['deltaTop']) ** 2) / 4
@@ -51,23 +51,27 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     N0B4C = data['roB4C'] * Na / data['MB4C']
     NB4C = N0B4C * SP / Stv
     NB = 4 * NB4C
+    NB10 = NB * data['%richB10'] / 100
+    NB11 = NB * (100 - data['%richB10']) / 100
     NC = NB4C
     NZrP = N0Zr * SOb / Stv
     out.write("Absorber: B4C\n")
-    out.write("NB: %.3e\nNC: %.3e\nNZr: %.3e\n" % (NB, NC, NZrP))
+    out.write("NB10: %.3e\nNB11: %.3e\nNC: %.3e\nNZr: %.3e\n" % (NB10, NB11, NC, NZrP))
     out.write("=============================\n")
 
-    # Gd2O3 - burnout absorber, d1
+    # Gd2O3 - burnout absorber, d1 TODO
     Stv = math.pi * data['dSVP1'] ** 2 / 4
     Ssvp = math.pi * (data['dSVP1'] - 2 * data['deltaSVP']) ** 2 / 4
     SOb = math.pi * (data['dSVP1'] ** 2 - (data['dSVP1'] - 2 * data['deltaSVP']) ** 2) / 4
     N0Gd2O3 = data['roGd2O3'] * Na / data['MGd2O3']
     NGd2O3 = N0Gd2O3 * Ssvp / Stv
     NGd1 = NGd2O3 * 2
+    N1Gd157 = NGd1 * data['%richGd157'] / 100
+    N1Gd158 = NGd1 * data['%richGd158'] / 100
     NOsvp1 = NGd2O3 * 3
     NZrSVP1 = N0Zr * SOb / Stv
     out.write("Burnout absorber d1: Gd2O3\n")
-    out.write("NGd: %.3e\nNO: %.3e\nNZr: %.3e\n" % (NGd1, NOsvp1, NZrSVP1))
+    out.write("NGd157: %.3e\nNGd158: %.3e\nNO: %.3e\nNZr: %.3e\n" % (N1Gd157, N1Gd158, NOsvp1, NZrSVP1))
     out.write("=============================\n")
 
     # Gd2O3 - burnout absorber, d2
@@ -77,10 +81,12 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     N0Gd2O3 = data['roGd2O3'] * Na / data['MGd2O3']
     NGd2O3 = N0Gd2O3 * Ssvp / Stv
     NGd2 = NGd2O3 * 2
+    N2Gd157 = NGd2 * data['%richGd157'] / 100
+    N2Gd158 = NGd2 * data['%richGd158'] / 100
     NOsvp2 = NGd2O3 * 3
     NZrSVP2 = N0Zr * SOb / Stv
     out.write("Burnout absorber d2: Gd2O3\n")
-    out.write("NGd: %.3e\nNO: %.3e\nNZr: %.3e\n" % (NGd2, NOsvp2, NZrSVP2))
+    out.write("NGd157: %.3e\nNGd158: %.3e\nNO: %.3e\nNZr: %.3e\n" % (N2Gd157, N2Gd158, NOsvp2, NZrSVP2))
     out.write("=============================\n")
 
     out.close()
