@@ -10,12 +10,12 @@ deltaTop: 0.5
 roB4C: 2.5
 dP: 6.8
 deltaP: 0.5
-%richB10: 19.8
+%richB10: 19.9
 MB4C: 52
 
 roGd2O3: 7.618
-%richGd157: 15.68
-%richGd158: 24.87
+%richGd155: 14.8
+%richGd157: 15.7
 dSVP1: 6.8
 dSVP2: 4.5
 deltaSVP: 0.5
