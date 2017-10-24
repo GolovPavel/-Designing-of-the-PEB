@@ -1,0 +1,8 @@
+roH2O: 708 kg/m^3
+kG: 0.93
+Wsr: 3.2 m/s
+Stn: 0.003831 m^2
+Ntvs: 121
+Qr: 135300000 Vt
+Cp: 5785 J/(kg*K)
+tVihR: 316 C
