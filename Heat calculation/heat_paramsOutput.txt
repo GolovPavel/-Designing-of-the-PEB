@@ -5,3 +5,11 @@ Gr: 1129.270
 Gtn: 8.680
 deltaTr: 20.711
 tVhR: 295.289
+
+======================
+Average heat characteristics
+----------------------
+qV: 103.361 MVt/m^3
+Qtvs: 1.096 MVt
+qlSr: 122.165 Vt/cm
+qSr: 0.572 MVt/m^2
