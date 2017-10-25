@@ -6,6 +6,7 @@ Ntvs: 121
 Qr: 135300000 Vt
 Cp: 5785 J/(kg*K)
 tVihR: 316 C
+
 Vaz: 1.309 m^3
 kQ: 0.98
 Ntvel: 69

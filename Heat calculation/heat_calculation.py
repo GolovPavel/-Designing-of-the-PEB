@@ -1,5 +1,7 @@
 import utils
 import math
+import numpy as np
+import matplotlib.pyplot as plt
 
 def write_header(file, header):
   file.write("======================\n")
@@ -15,7 +17,7 @@ def first_circuit_params_calculation(data):
   deltaTr = data["Qr"] / (data["Cp"] * Gr)
   tVhR = data["tVihR"] - deltaTr
 
-  file.write("Gr: %.3f\nGtn: %.3f\ndeltaTr: %.3f\ntVhR: %.3f\n\n" % (Gr, Gtn, deltaTr, tVhR))
+  file.write("Gr: %.3f kg/s\nGtn: %.3f kg/s\ndeltaTr: %.3f C\ntVhR: %.3f C\n\n" % (Gr, Gtn, deltaTr, tVhR))
   file.close()
 
 def avg_heat_characteristics_calculation(data):
@@ -29,6 +31,7 @@ def avg_heat_characteristics_calculation(data):
 
     file.write("qV: %.3f MVt/m^3\nQtvs: %.3f MVt\nqlSr: %.3f Vt/cm\nqSr: %.3f MVt/m^2\n\n" % (qV, Qtvs, qlSr, qSr))
     file.close()
+
 
 data = {}
 utils.fill_dict_from_file(data, "heat_paramsInput.txt")

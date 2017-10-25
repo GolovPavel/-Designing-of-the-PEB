@@ -1,0 +1,5 @@
+kV: 1.93
+deltaR: 0.272
+deltaZ: 0.126
+qSr: 0.584 MVt/m^2
+Haz: 1300 mm
