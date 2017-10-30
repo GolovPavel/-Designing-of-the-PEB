@@ -7,13 +7,13 @@ Na = 6.002e23
 def calc_nuclear_concentrations_and_write_to_file(data):
     out = open('NCOut.txt', 'w')
 
-    N0Zr = data['roZr'] * Na / data['MZr']
+    N0Zr = data['roZr'] * Na / data['MZr'] * 1e-24
 
     # UO2+PuO2 - MOX fuel
     Stv = math.pi * data['dTop'] ** 2 / 4
     STop = math.pi * (data['dTop'] - 2 * data['deltaTop']) ** 2 / 4
     SOb = math.pi * (data['dTop'] ** 2 - (data['dTop'] - 2 * data['deltaTop']) ** 2) / 4
-    NUO2 = data["N0UO2"] * (STop / Stv)
+    NUO2 = data["N0UO2"] * (STop / Stv) * 1e-24
     NZrTop = N0Zr * SOb / Stv
     NOtop = 2 * NUO2
     N1PuO2 = NUO2 * data["%1PuO2"] / 100
@@ -37,7 +37,7 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     out.write("=============================\n")
 
     # H2O - moderator
-    N0H2O = data['roH2O'] * Na / data['MH2O']
+    N0H2O = data['roH2O'] * Na / data['MH2O'] * 1e-24
     NH = 2 * N0H2O
     NOmod = N0H2O
     out.write("Moderator: H2O\n")
@@ -48,7 +48,7 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     Stv = math.pi * data['dP'] ** 2 / 4
     SP = math.pi * (data['dP'] - 2 * data['deltaP']) ** 2 / 4
     SOb = math.pi * (data['dP'] ** 2 - (data['dP'] - 2 * data['deltaP']) ** 2) / 4
-    N0B4C = data['roB4C'] * Na / data['MB4C']
+    N0B4C = data['roB4C'] * Na / data['MB4C'] * 1e-24
     NB4C = N0B4C * SP / Stv
     NB = 4 * NB4C
     NB10 = NB * data['%richB10'] / 100
@@ -59,11 +59,11 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     out.write("NB10: %.3e\nNC: %.3e\nNZr: %.3e\n" % (NB10, NC, NZrP))
     out.write("=============================\n")
 
-    # Gd2O3 - burnout absorber, d1 TODO
+    # Gd2O3 - burnout absorber, d1
     Stv = math.pi * data['dSVP1'] ** 2 / 4
     Ssvp = math.pi * (data['dSVP1'] - 2 * data['deltaSVP']) ** 2 / 4
     SOb = math.pi * (data['dSVP1'] ** 2 - (data['dSVP1'] - 2 * data['deltaSVP']) ** 2) / 4
-    N0Gd2O3 = data['roGd2O3'] * Na / data['MGd2O3']
+    N0Gd2O3 = data['roGd2O3'] * Na / data['MGd2O3'] * 1e-24
     NGd2O3 = N0Gd2O3 * Ssvp / Stv
     NGd1 = NGd2O3 * 2
     N1Gd155 = NGd1 * data['%richGd155'] / 100
@@ -78,7 +78,7 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     Stv = math.pi * data['dSVP2'] ** 2 / 4
     Ssvp = math.pi * (data['dSVP2'] - 2 * data['deltaSVP']) ** 2 / 4
     SOb = math.pi * (data['dSVP2'] ** 2 - (data['dSVP2'] - 2 * data['deltaSVP']) ** 2) / 4
-    N0Gd2O3 = data['roGd2O3'] * Na / data['MGd2O3']
+    N0Gd2O3 = data['roGd2O3'] * Na / data['MGd2O3'] * 1e-24
     NGd2O3 = N0Gd2O3 * Ssvp / Stv
     NGd2 = NGd2O3 * 2
     N2Gd155 = NGd2 * data['%richGd155'] / 100

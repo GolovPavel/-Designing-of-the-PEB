@@ -3,9 +3,9 @@ dTop: 6.8
 deltaTop: 0.5
 %1PuO2: 14
 %2PuO2: 12
-%richPu39: 12
-%richPu40: 10
-%richPu41: 10
+%richPu39: 52
+%richPu40: 24
+%richPu41: 15
 
 roB4C: 2.5
 dP: 6.8

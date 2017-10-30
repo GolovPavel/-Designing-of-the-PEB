@@ -8,5 +8,5 @@ BNAB:.\get-93\bin\XE35.MLT
 F11:.\get-93\bin\f11
 
 
-INGET:kp1.in
-OUTGET:kp1.out
+INGET:input\kp1Centr.in
+OUTGET:output\kp1Centr.out
