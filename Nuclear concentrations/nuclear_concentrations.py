@@ -18,8 +18,8 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     NOtop = 2 * NUO2
     N1PuO2 = NUO2 * data["%1PuO2"] / 100
     N2PuO2 = NUO2 * data["%2PuO2"] / 100
-    N1UO2 = NUO2 * (100 - data["%1PuO2"] / 100)
-    N2UO2 = NUO2 * (100 - data["%2PuO2"] / 100)
+    N1UO2 = NUO2 * (100 - data["%1PuO2"]) / 100
+    N2UO2 = NUO2 * (100 - data["%2PuO2"]) / 100
     N1U238 = N1UO2
     N2U238 = N2UO2
     N1Pu239 = N1PuO2 * data["%richPu39"] / 100

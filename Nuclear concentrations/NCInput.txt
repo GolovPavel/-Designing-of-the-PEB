@@ -1,8 +1,8 @@
 N0UO2: 0.018539e24
 dTop: 6.8
 deltaTop: 0.5
-%1PuO2: 14
-%2PuO2: 12
+%1PuO2: 30
+%2PuO2: 28
 %richPu39: 52
 %richPu40: 24
 %richPu41: 15
