@@ -11,6 +11,7 @@ roB4C: 2.5
 dP: 6.8
 deltaP: 0.5
 %richB10: 19.9
+%richB10AZ: 90
 MB4C: 52
 
 roGd2O3: 7.618
