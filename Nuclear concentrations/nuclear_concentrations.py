@@ -52,11 +52,11 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     NB4C = N0B4C * SP / Stv
     NB = 4 * NB4C
     NB10 = NB * data['%richB10'] / 100
-    #NB11 = NB * (100 - data['%richB10']) / 100
+    NB11 = NB * (100 - data['%richB10']) / 100
     NC = NB4C
     NZrP = N0Zr * SOb / Stv
     out.write("Absorber: B4C\n")
-    out.write("NB10: %.3e\nNC: %.3e\nNZr: %.3e\n" % (NB10, NC, NZrP))
+    out.write("NB10: %.3e\nNB11: %.3e\nNC: %.3e\nNZr: %.3e\n" % (NB10, NB11, NC, NZrP))
     out.write("=============================\n")
 
     # Gd2O3 - burnout absorber, d1
@@ -88,6 +88,29 @@ def calc_nuclear_concentrations_and_write_to_file(data):
     out.write("Burnout absorber d2: Gd2O3\n")
     out.write("NGd155: %.3e\nNGd157: %.3e\nNO: %.3e\nNZr: %.3e\n" % (N2Gd155, N2Gd157, NOsvp2, NZrSVP2))
     out.write("=============================\n")
+
+    #B4C, emergency protection bar
+    S = math.pi * data['dAZ'] ** 2 / 4
+    SAZ = math.pi * (data['dAZ'] - 2 * data['deltaAZ']) ** 2 / 4
+    SOb = math.pi * (data['dAZ'] ** 2 - (data['dAZ'] - 2 * data['deltaAZ']) ** 2) / 4
+    NB4C = SAZ / S * N0B4C
+    NB = 4 * NB4C
+    NB10 = NB * data['%richB10AZ'] / 100
+    NB11 = NB * (100 - data['%richB10AZ']) / 100
+    NC = NB4C
+    NZr = N0Zr * SOb / S
+    out.write("Emergency protection bar: B4C\n")
+    out.write("NB10: %.3e\nNB11: %.3e\nNC: %.3e\nNZr: %.3e\n" % (NB10, NB11, NC, NZr))
+    out.write("=============================\n")
+
+    #Air, NO2
+    N0NO2 = data['roNO2'] * Na / data['MNO2'] * 1e-24
+    NOAir = 2 * N0NO2
+    NNAir = N0NO2
+    out.write("Air: NO2\n")
+    out.write("NN: %.3e\nNO: %.3e\n" % (NNAir, NOAir))
+    out.write("=============================\n")
+
 
     out.close()
 

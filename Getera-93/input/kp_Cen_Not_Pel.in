@@ -1,9 +1,9 @@
 :poly
  &vvod
  @ 1 tvel  cell@   rcel(1,1)=0.340,0.480,
-                   ncelsos(1,1)=1,3,
+                   ncelsos(1,1)=2,3,
  @ 2 tvel  cell@   rcel(1,2)=0.340,0.480,
-                   ncelsos(1,2)=1,3,
+                   ncelsos(1,2)=2,3,
  @ 3 svp-1 cell@   rcel(1,3)=0.340,0.480,
                    ncelsos(1,3)=5,3,
  @ 4 svp-2 cell@   rcel(1,4)=0.225,0.480,

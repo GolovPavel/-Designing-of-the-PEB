@@ -10,9 +10,12 @@ deltaTop: 0.5
 roB4C: 2.5
 dP: 6.8
 deltaP: 0.5
-%richB10: 19.9
-%richB10AZ: 90
+%richB10: 19.
 MB4C: 52
+
+%richB10AZ: 90
+dAZ: 20.5
+deltaAZ: 0.5
 
 roGd2O3: 7.618
 %richGd155: 14.8
@@ -27,3 +30,6 @@ MH2O: 18
 
 roZr: 6.5
 MZr: 91
+
+roNO2: 1.45
+MNO2: 46
