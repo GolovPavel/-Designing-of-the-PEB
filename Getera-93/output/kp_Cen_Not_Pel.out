@@ -2,9 +2,9 @@
 :poly
  &vvod
  @ 1 tvel  cell@   rcel(1,1)=0.340,0.480,
-                   ncelsos(1,1)=1,3,
+                   ncelsos(1,1)=2,3,
  @ 2 tvel  cell@   rcel(1,2)=0.340,0.480,
-                   ncelsos(1,2)=1,3,
+                   ncelsos(1,2)=2,3,
  @ 3 svp-1 cell@   rcel(1,3)=0.340,0.480,
                    ncelsos(1,3)=5,3,
  @ 4 svp-2 cell@   rcel(1,4)=0.225,0.480,
@@ -72,6 +72,38 @@ pu41
   et=10.5e+6,2.15,2.15,0.,
   nbv=1,1,1,1,1,1
  &end
+@ 200 days!----------
+:burn
+ &vvod qv=103.361,dtim=200.0,
+ &end
+:corr
+ &vvod &end
+:fier
+ &vvod &end
+@ 200 days!----------
+:burn
+ &vvod qv=103.361,dtim=200.0,
+ &end
+:corr
+ &vvod &end
+:fier
+ &vvod &end
+@ 200 days!----------
+:burn
+ &vvod qv=103.361,dtim=200.0,
+ &end
+:corr
+ &vvod &end
+:fier
+ &vvod &end
+@ 150 days!----------
+:burn
+ &vvod qv=103.361,dtim=150.0,
+ &end
+:corr
+ &vvod &end
+:fier
+ &vvod &end
 :stop
  ***** end of   file of input data set *******
 :poly                                                                           
@@ -81,7 +113,7 @@ Rout= 0.340, 0.480, 0.340, 0.480, 0.340, 0.480, 0.225, 0.480, 0.340, 0.480,
 Rin = 0.000, 0.340, 0.000, 0.340, 0.000, 0.340, 0.000, 0.225, 0.000, 0.340,
  0.000, 0.390,
   nsos  was constructed
-nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
+nsos=  2,  3,  2,  3,  5,  3,  6,  3,  3,  3,
   7,  3,
  definition izotr in sos           1:izotr=   5.000000    
  definition izotr in sos           2:izotr=   5.000000    
@@ -145,12 +177,12 @@ nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
   1 *h*      0.00000E+00 0.46550E-01
   2 *o*      0.00000E+00 0.23270E-01
   3 zr       0.11680E-01 0.00000E+00
-  5 u238     0.94410E-02 0.00000E+00
+  5 u238     0.97110E-02 0.00000E+00
   6 o        0.26970E-01 0.00000E+00
   8 al       0.19000E-01 0.00000E+00
- 15 pu39     0.21040E-02 0.00000E+00
- 16 pu40     0.97110E-03 0.00000E+00
- 17 pu41     0.60690E-03 0.00000E+00
+ 15 pu39     0.19640E-02 0.00000E+00
+ 16 pu40     0.90630E-03 0.00000E+00
+ 17 pu41     0.56650E-03 0.00000E+00
  ------------------------------------------------------------------------------
   number of cells =           6
           cell number    2  number of zone= 2
@@ -170,12 +202,12 @@ nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
   1 *h*      0.00000E+00 0.46550E-01
   2 *o*      0.00000E+00 0.23270E-01
   3 zr       0.11680E-01 0.00000E+00
-  5 u238     0.94410E-02 0.00000E+00
+  5 u238     0.97110E-02 0.00000E+00
   6 o        0.26970E-01 0.00000E+00
   8 al       0.19000E-01 0.00000E+00
- 15 pu39     0.21040E-02 0.00000E+00
- 16 pu40     0.97110E-03 0.00000E+00
- 17 pu41     0.60690E-03 0.00000E+00
+ 15 pu39     0.19640E-02 0.00000E+00
+ 16 pu40     0.90630E-03 0.00000E+00
+ 17 pu41     0.56650E-03 0.00000E+00
  ------------------------------------------------------------------------------
   number of cells =           6
           cell number    3  number of zone= 2
@@ -270,10 +302,10 @@ nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
        ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
        ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
  
-    >>  K-inf(MLT)= 1.68857 Balance= 1.00209 NU= 2.98 FI-Sum=  9.74E+01
+    >>  K-inf(MLT)= 1.63320 Balance= 1.00212 NU= 2.98 FI-Sum=  1.00E+02
     >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
     >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.68693 Balance= 1.00209 NU= 2.98 FI-Sum=  9.74E+01
+    >>  K-inf(MLT)= 1.63142 Balance= 1.00212 NU= 2.98 FI-Sum=  1.00E+02
     >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
     >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
     >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
@@ -291,7 +323,7 @@ nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
  therm. calculation avoided
  therm. calculation avoided
  *************************************************
-   ***k(inf)= 1.11175     ***k(itt)= 1.14430     ***k(integ)= 1.11175    ***
+   ***k(inf)= 1.09139     ***k(itt)= 1.12354     ***k(integ)= 1.09139    ***
    **bakl=  0.0000     **length= 0.10000E+11  ***
    **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
      * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
@@ -300,12 +332,12 @@ nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
      *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
      *  0.0000     0.28570      0.0000     0.28570     0.42860      0.0000    
      * 0.36110      0.0000     0.83300E-01  0.0000      0.0000     0.55550    
- lokal kner      in cell ,ru=           1=  0.9674894      0.9671701    
- lokal kner      in cell ,ru=           2=   1.092113       1.093018    
- lokal kner      in cell ,ru=           3=  0.0000000E+00   1.246117    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.7981256    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  1.2429217E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  0.5329927    
+ lokal kner      in cell ,ru=           1=  0.9673098      0.9673387    
+ lokal kner      in cell ,ru=           2=   1.092622       1.092541    
+ lokal kner      in cell ,ru=           3=  0.0000000E+00   1.286590    
+ lokal kner      in cell ,ru=           4=  0.0000000E+00  0.8235895    
+ lokal kner      in cell ,ru=           5=  0.0000000E+00  1.2781732E-02
+ lokal kner      in cell ,ru=           6=  0.0000000E+00  0.5424272    
 :corr                                                                           
  ------------------------------------------------------------------------------
   backling =  0.0000000E+00
@@ -328,12 +360,12 @@ nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
   1 *h*      0.00000E+00 0.46550E-01
   2 *o*      0.00000E+00 0.23270E-01
   3 zr       0.11680E-01 0.00000E+00
-  5 u238     0.94410E-02 0.00000E+00
+  5 u238     0.97110E-02 0.00000E+00
   6 o        0.26970E-01 0.00000E+00
   8 al       0.19000E-01 0.00000E+00
- 15 pu39     0.21040E-02 0.00000E+00
- 16 pu40     0.97110E-03 0.00000E+00
- 17 pu41     0.60690E-03 0.00000E+00
+ 15 pu39     0.19640E-02 0.00000E+00
+ 16 pu40     0.90630E-03 0.00000E+00
+ 17 pu41     0.56650E-03 0.00000E+00
  ------------------------------------------------------------------------------
   number of cells =           6
           cell number    2  number of zone= 2
@@ -353,12 +385,12 @@ nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
   1 *h*      0.00000E+00 0.46550E-01
   2 *o*      0.00000E+00 0.23270E-01
   3 zr       0.11680E-01 0.00000E+00
-  5 u238     0.94410E-02 0.00000E+00
+  5 u238     0.97110E-02 0.00000E+00
   6 o        0.26970E-01 0.00000E+00
   8 al       0.19000E-01 0.00000E+00
- 15 pu39     0.21040E-02 0.00000E+00
- 16 pu40     0.97110E-03 0.00000E+00
- 17 pu41     0.60690E-03 0.00000E+00
+ 15 pu39     0.19640E-02 0.00000E+00
+ 16 pu40     0.90630E-03 0.00000E+00
+ 17 pu41     0.56650E-03 0.00000E+00
  ------------------------------------------------------------------------------
   number of cells =           6
           cell number    3  number of zone= 2
@@ -446,16 +478,1176 @@ nsos=  1,  3,  1,  3,  5,  3,  6,  3,  3,  3,
     -------------------------------------------------------------------------------
     * n group   * e(i)        * e(i+1)      *spect neutron fission  *
           1       0.10500E+08    2.1544           0.99883    
-          2        2.1544        0.0000           0.12809E-08
+          2        2.1544        0.0000           0.12821E-08
     *******************************************************************************
                                        **    macro cross section    **
     *******************************************************************************
     ** n zone    1 vzone=  56.458     /  1  2  3  4  5  6
 *grp*flux 1/cm2c  * stotal      * sabs        * sfis.       * nu$sfis.    * 1/3*strans  *1/aver.veloci*aver power
-  1  0.4979813     0.4899636     0.2146974E-01 0.9106206E-02 0.2673062E-01  1.393038     0.6264136E-06  1.245037     0.6542189    
-  2  0.1133540E-01  1.374887     0.5581791     0.2114424     0.6071299     0.3426141     0.7306010E-06  1.087697     0.3457812    
+  1  0.5002429     0.4904313     0.2101451E-01 0.8699955E-02 0.2552543E-01  1.390922     0.6403836E-06  1.214658     0.6390554    
+  2  0.1195018E-01  1.356901     0.5423777     0.2056958     0.5906275     0.3458711     0.7770404E-06  1.088960     0.3609446    
                                        * matric. scat.cross. sec. from i to j  *
        i / j -->            1           2
-       i        1 0.4594797     0.9014009E-02
-       i        2 0.2514142E-03 0.8164567    
+       i        1 0.4601981     0.9219362E-02
+       i        2 0.2456877E-03 0.8142770    
+:burn                                                                           
+ *** average burn up =   9.9245     (mbt*day)/(kg hm)
+    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
+    { Manturov G., E-mail: abbn@ippe.rssi.ru}
+ 
+       -------------------------------
+ 
+       CONSYST INPUT DATA READ FROM : cons.dat
+       CONSYST PROTOCOL STORED IN   : RESULT
+       GMF X-SECTION'S FILE         : OUT
+       TEMPORARY FILE               : RAB
+       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
+       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
+       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
+ 
+    >>  K-inf(MLT)= 1.59832 Balance= 1.00234 NU= 2.98 FI-Sum=  1.01E+02
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >>  K-inf(MLT)= 1.59222 Balance= 1.00236 NU= 2.98 FI-Sum=  1.02E+02
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    > CONSYST finished at  0: 0: 0:  
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ *************************************************
+   ***k(inf)= 1.05834     ***k(itt)= 1.08958     ***k(integ)= 1.05834    ***
+   **bakl=  0.0000     **length= 0.10000E+11  ***
+   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
+     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
+     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
+     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
+     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
+     *  0.0000     0.28570      0.0000     0.28570     0.42860      0.0000    
+     * 0.36110      0.0000     0.83300E-01  0.0000      0.0000     0.55550    
+ lokal kner      in cell ,ru=           1=  0.9679693      0.9669790    
+ lokal kner      in cell ,ru=           2=   1.090754       1.093559    
+ lokal kner      in cell ,ru=           3=  0.0000000E+00   1.240736    
+ lokal kner      in cell ,ru=           4=  0.0000000E+00  0.7838789    
+ lokal kner      in cell ,ru=           5=  0.0000000E+00  1.2791903E-02
+ lokal kner      in cell ,ru=           6=  0.0000000E+00  0.5400273    
+:corr                                                                           
+ ------------------------------------------------------------------------------
+  backling =  0.0000000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    1  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   51.00000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.5882000      0.1372000      0.1176000      0.0000000E+00
+  0.0000000E+00  0.1586000    
+ ------------------------------------------------------------------------------
+ num zone      1           2
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    u238        bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  5 u238     0.96640E-02 0.00000E+00
+  6 o        0.26970E-01 0.00000E+00
+  8 al       0.19000E-01 0.00000E+00
+ 11 gd55     0.89894E-08 0.00000E+00
+ 12 gd57     0.65686E-07 0.00000E+00
+ 15 pu39     0.18704E-02 0.00000E+00
+ 16 pu40     0.90340E-03 0.00000E+00
+ 17 pu41     0.55036E-03 0.00000E+00
+ 21 slag     0.48115E-04 0.00000E+00
+ 22 tc99     0.81594E-05 0.00000E+00
+ 23 rh03     0.84350E-05 0.00000E+00
+ 24 ag09     0.18120E-05 0.00000E+00
+ 25 cd13     0.98318E-07 0.00000E+00
+ 26 xe35     0.23842E-07 0.00000E+00
+ 27 sm49     0.10935E-05 0.00000E+00
+ 28 sm51     0.95774E-06 0.00000E+00
+ 29 eu55     0.19538E-06 0.00000E+00
+ 30 gd56     0.98783E-07 0.00000E+00
+ 31 np37     0.60575E-08 0.00000E+00
+ 32 np39     0.69847E-06 0.00000E+00
+ 33 pu38     0.12590E-06 0.00000E+00
+ 34 pu42     0.10275E-04 0.00000E+00
+ 35 am41     0.13801E-04 0.00000E+00
+ 36 am2m     0.65543E-07 0.00000E+00
+ 37 am43     0.47850E-06 0.00000E+00
+ 38 cm42     0.41583E-06 0.00000E+00
+ 39 cm44     0.21006E-07 0.00000E+00
+ 40 cm45     0.26570E-09 0.00000E+00
+ 45 sm52     0.89631E-06 0.00000E+00
+ 46 xe31     0.45916E-05 0.00000E+00
+ 47 cs33     0.89669E-05 0.00000E+00
+ 48 nd45     0.41989E-05 0.00000E+00
+ 49 nd43     0.59616E-05 0.00000E+00
+ 50 pm47     0.24866E-05 0.00000E+00
+ 51 mo95     0.62953E-05 0.00000E+00
+ 52 cs34     0.14077E-06 0.00000E+00
+ 53 pr41     0.70048E-05 0.00000E+00
+ 54 pm48     0.87989E-08 0.00000E+00
+ 55 pm8m     0.40815E-07 0.00000E+00
+ 56 rh05     0.75873E-07 0.00000E+00
+ 57 pm49     0.29971E-07 0.00000E+00
+ 58 kr83     0.37191E-06 0.00000E+00
+ 59 ru01     0.67460E-05 0.00000E+00
+ 60 pd05     0.71526E-05 0.00000E+00
+ 61 cs35     0.88470E-05 0.00000E+00
+ 62 sm50     0.70624E-06 0.00000E+00
+ 63 eu51     0.75477E-08 0.00000E+00
+ 64 eu53     0.74843E-07 0.00000E+00
+ 65 eu54     0.33821E-08 0.00000E+00
+ 66 gd54     0.38483E-10 0.00000E+00
+ 67 am42     0.62186E-08 0.00000E+00
+ 68 cm43     0.20489E-08 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    2  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   18.00000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.3888000      0.3333000      0.0000000E+00  0.2222000    
+  5.5500001E-02  0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      3           4
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    u238        bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  5 u238     0.96609E-02 0.00000E+00
+  6 o        0.26970E-01 0.00000E+00
+  8 al       0.19000E-01 0.00000E+00
+ 11 gd55     0.94081E-08 0.00000E+00
+ 12 gd57     0.60024E-07 0.00000E+00
+ 15 pu39     0.18538E-02 0.00000E+00
+ 16 pu40     0.90329E-03 0.00000E+00
+ 17 pu41     0.55151E-03 0.00000E+00
+ 21 slag     0.54657E-04 0.00000E+00
+ 22 tc99     0.91950E-05 0.00000E+00
+ 23 rh03     0.94998E-05 0.00000E+00
+ 24 ag09     0.20397E-05 0.00000E+00
+ 25 cd13     0.10033E-06 0.00000E+00
+ 26 xe35     0.25994E-07 0.00000E+00
+ 27 sm49     0.10508E-05 0.00000E+00
+ 28 sm51     0.10556E-05 0.00000E+00
+ 29 eu55     0.21054E-06 0.00000E+00
+ 30 gd56     0.12324E-06 0.00000E+00
+ 31 np37     0.60316E-08 0.00000E+00
+ 32 np39     0.75102E-06 0.00000E+00
+ 33 pu38     0.13873E-06 0.00000E+00
+ 34 pu42     0.11698E-04 0.00000E+00
+ 35 am41     0.13741E-04 0.00000E+00
+ 36 am2m     0.71229E-07 0.00000E+00
+ 37 am43     0.57697E-06 0.00000E+00
+ 38 cm42     0.45815E-06 0.00000E+00
+ 39 cm44     0.26787E-07 0.00000E+00
+ 40 cm45     0.35764E-09 0.00000E+00
+ 45 sm52     0.10291E-05 0.00000E+00
+ 46 xe31     0.51764E-05 0.00000E+00
+ 47 cs33     0.10108E-04 0.00000E+00
+ 48 nd45     0.47249E-05 0.00000E+00
+ 49 nd43     0.67106E-05 0.00000E+00
+ 50 pm47     0.27850E-05 0.00000E+00
+ 51 mo95     0.70941E-05 0.00000E+00
+ 52 cs34     0.16880E-06 0.00000E+00
+ 53 pr41     0.78907E-05 0.00000E+00
+ 54 pm48     0.10478E-07 0.00000E+00
+ 55 pm8m     0.47264E-07 0.00000E+00
+ 56 rh05     0.85492E-07 0.00000E+00
+ 57 pm49     0.33768E-07 0.00000E+00
+ 58 kr83     0.41806E-06 0.00000E+00
+ 59 ru01     0.76068E-05 0.00000E+00
+ 60 pd05     0.80790E-05 0.00000E+00
+ 61 cs35     0.96717E-05 0.00000E+00
+ 62 sm50     0.97528E-06 0.00000E+00
+ 63 eu51     0.10326E-07 0.00000E+00
+ 64 eu53     0.92126E-07 0.00000E+00
+ 65 eu54     0.43617E-08 0.00000E+00
+ 66 gd54     0.49609E-10 0.00000E+00
+ 67 am42     0.68437E-08 0.00000E+00
+ 68 cm43     0.23205E-08 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    3  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   9.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.6666000      0.0000000E+00  0.0000000E+00  0.0000000E+00
+  0.0000000E+00  0.3333000    
+ ------------------------------------------------------------------------------
+ num zone      5           6
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  6 o        0.27570E-01 0.00000E+00
+ 11 gd55     0.25184E-02 0.00000E+00
+ 12 gd57     0.27161E-02 0.00000E+00
+ 21 slag     0.16997E-03 0.00000E+00
+ 30 gd56     0.20051E-03 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    4  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   6.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.0000000E+00  0.6666000      0.0000000E+00  0.0000000E+00
+  0.3333000      0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      7           8
+ radius   0.22500E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.16940E-01 0.00000E+00
+  6 o        0.22920E-01 0.00000E+00
+ 11 gd55     0.20207E-02 0.00000E+00
+ 12 gd57     0.21155E-02 0.00000E+00
+ 21 slag     0.28498E-03 0.00000E+00
+ 30 gd56     0.23979E-03 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    5  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   7.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.0000000E+00  0.2857000      0.0000000E+00  0.2857000    
+  0.4286000      0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      9          10
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.46550E-01 0.46550E-01
+  2 *o*      0.23270E-01 0.23270E-01
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    6  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   1.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.3611000      0.0000000E+00  8.3300002E-02  0.0000000E+00
+  0.0000000E+00  0.5555000    
+ ------------------------------------------------------------------------------
+ num zone     11          12
+ radius   0.39000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.42580E-01 0.00000E+00
+:fier                                                                           
+ condensation boundary was changed from  0.21500E+01 to  0.21544E+01
+*** 4 *** ;egr=  2.1544    
+    keff         nu           mu           fi           teta
+   1.0583       1.1882       2.8224      0.38848      0.81233    
+ s0z(n)=   0.7953002      0.0000000E+00   1.029409      0.0000000E+00
+  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+  0.0000000E+00  0.0000000E+00  0.0000000E+00
+:burn                                                                           
+ *** average burn up =   19.968     (mbt*day)/(kg hm)
+    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
+    { Manturov G., E-mail: abbn@ippe.rssi.ru}
+ 
+       -------------------------------
+ 
+       CONSYST INPUT DATA READ FROM : cons.dat
+       CONSYST PROTOCOL STORED IN   : RESULT
+       GMF X-SECTION'S FILE         : OUT
+       TEMPORARY FILE               : RAB
+       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
+       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
+       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
+ 
+    >>  K-inf(MLT)= 1.56414 Balance= 1.00254 NU= 2.98 FI-Sum=  1.03E+02
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >>  K-inf(MLT)= 1.55375 Balance= 1.00260 NU= 2.98 FI-Sum=  1.03E+02
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    > CONSYST finished at  0: 0: 0:  
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ *************************************************
+   ***k(inf)= 1.03581     ***k(itt)= 1.06646     ***k(integ)= 1.03581    ***
+   **bakl=  0.0000     **length= 0.10000E+11  ***
+   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
+     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
+     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
+     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
+     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
+     *  0.0000     0.28570      0.0000     0.28570     0.42860      0.0000    
+     * 0.36110      0.0000     0.83300E-01  0.0000      0.0000     0.55550    
+ lokal kner      in cell ,ru=           1=  0.9681395      0.9668769    
+ lokal kner      in cell ,ru=           2=   1.090271       1.093849    
+ lokal kner      in cell ,ru=           3=  0.0000000E+00   1.199381    
+ lokal kner      in cell ,ru=           4=  0.0000000E+00  0.7468125    
+ lokal kner      in cell ,ru=           5=  0.0000000E+00  1.2859106E-02
+ lokal kner      in cell ,ru=           6=  0.0000000E+00  0.5387927    
+:corr                                                                           
+ ------------------------------------------------------------------------------
+  backling =  0.0000000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    1  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   51.00000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.5882000      0.1372000      0.1176000      0.0000000E+00
+  0.0000000E+00  0.1586000    
+ ------------------------------------------------------------------------------
+ num zone      1           2
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    u238        bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  5 u238     0.96154E-02 0.00000E+00
+  6 o        0.26970E-01 0.00000E+00
+  8 al       0.19000E-01 0.00000E+00
+ 11 gd55     0.24464E-07 0.00000E+00
+ 12 gd57     0.83608E-07 0.00000E+00
+ 15 pu39     0.17795E-02 0.00000E+00
+ 16 pu40     0.89900E-03 0.00000E+00
+ 17 pu41     0.53551E-03 0.00000E+00
+ 21 slag     0.98867E-04 0.00000E+00
+ 22 tc99     0.16114E-04 0.00000E+00
+ 23 rh03     0.16488E-04 0.00000E+00
+ 24 ag09     0.34082E-05 0.00000E+00
+ 25 cd13     0.15097E-06 0.00000E+00
+ 26 xe35     0.23841E-07 0.00000E+00
+ 27 sm49     0.14750E-05 0.00000E+00
+ 28 sm51     0.16711E-05 0.00000E+00
+ 29 eu55     0.27931E-06 0.00000E+00
+ 30 gd56     0.30199E-06 0.00000E+00
+ 31 np37     0.22615E-07 0.00000E+00
+ 32 np39     0.72383E-06 0.00000E+00
+ 33 pu38     0.82050E-06 0.00000E+00
+ 34 pu42     0.20020E-04 0.00000E+00
+ 35 am41     0.25744E-04 0.00000E+00
+ 36 am2m     0.23455E-06 0.00000E+00
+ 37 am43     0.17013E-05 0.00000E+00
+ 38 cm42     0.12829E-05 0.00000E+00
+ 39 cm44     0.15330E-06 0.00000E+00
+ 40 cm45     0.40008E-08 0.00000E+00
+ 45 sm52     0.18580E-05 0.00000E+00
+ 46 xe31     0.88449E-05 0.00000E+00
+ 47 cs33     0.17635E-04 0.00000E+00
+ 48 nd45     0.83083E-05 0.00000E+00
+ 49 nd43     0.11831E-04 0.00000E+00
+ 50 pm47     0.42858E-05 0.00000E+00
+ 51 mo95     0.12504E-04 0.00000E+00
+ 52 cs34     0.53106E-06 0.00000E+00
+ 53 pr41     0.13995E-04 0.00000E+00
+ 54 pm48     0.15518E-07 0.00000E+00
+ 55 pm8m     0.81755E-07 0.00000E+00
+ 56 rh05     0.75822E-07 0.00000E+00
+ 57 pm49     0.30520E-07 0.00000E+00
+ 58 kr83     0.73709E-06 0.00000E+00
+ 59 ru01     0.13404E-04 0.00000E+00
+ 60 pd05     0.14274E-04 0.00000E+00
+ 61 cs35     0.17638E-04 0.00000E+00
+ 62 sm50     0.21613E-05 0.00000E+00
+ 63 eu51     0.41408E-07 0.00000E+00
+ 64 eu53     0.30758E-06 0.00000E+00
+ 65 eu54     0.27135E-07 0.00000E+00
+ 66 gd54     0.61392E-09 0.00000E+00
+ 67 am42     0.11953E-07 0.00000E+00
+ 68 cm43     0.13204E-07 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    2  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   18.00000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.3888000      0.3333000      0.0000000E+00  0.2222000    
+  5.5500001E-02  0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      3           4
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    u238        bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  5 u238     0.96089E-02 0.00000E+00
+  6 o        0.26970E-01 0.00000E+00
+  8 al       0.19000E-01 0.00000E+00
+ 11 gd55     0.23749E-07 0.00000E+00
+ 12 gd57     0.69093E-07 0.00000E+00
+ 15 pu39     0.17475E-02 0.00000E+00
+ 16 pu40     0.89815E-03 0.00000E+00
+ 17 pu41     0.53783E-03 0.00000E+00
+ 21 slag     0.11233E-03 0.00000E+00
+ 22 tc99     0.18122E-04 0.00000E+00
+ 23 rh03     0.18502E-04 0.00000E+00
+ 24 ag09     0.38208E-05 0.00000E+00
+ 25 cd13     0.14190E-06 0.00000E+00
+ 26 xe35     0.25900E-07 0.00000E+00
+ 27 sm49     0.12947E-05 0.00000E+00
+ 28 sm51     0.17988E-05 0.00000E+00
+ 29 eu55     0.28977E-06 0.00000E+00
+ 30 gd56     0.37178E-06 0.00000E+00
+ 31 np37     0.22416E-07 0.00000E+00
+ 32 np39     0.77846E-06 0.00000E+00
+ 33 pu38     0.90300E-06 0.00000E+00
+ 34 pu42     0.22785E-04 0.00000E+00
+ 35 am41     0.25511E-04 0.00000E+00
+ 36 am2m     0.25128E-06 0.00000E+00
+ 37 am43     0.20434E-05 0.00000E+00
+ 38 cm42     0.14128E-05 0.00000E+00
+ 39 cm44     0.19520E-06 0.00000E+00
+ 40 cm45     0.53626E-08 0.00000E+00
+ 45 sm52     0.21435E-05 0.00000E+00
+ 46 xe31     0.99347E-05 0.00000E+00
+ 47 cs33     0.19832E-04 0.00000E+00
+ 48 nd45     0.93322E-05 0.00000E+00
+ 49 nd43     0.13288E-04 0.00000E+00
+ 50 pm47     0.47709E-05 0.00000E+00
+ 51 mo95     0.14066E-04 0.00000E+00
+ 52 cs34     0.63516E-06 0.00000E+00
+ 53 pr41     0.15743E-04 0.00000E+00
+ 54 pm48     0.18353E-07 0.00000E+00
+ 55 pm8m     0.93213E-07 0.00000E+00
+ 56 rh05     0.85239E-07 0.00000E+00
+ 57 pm49     0.34456E-07 0.00000E+00
+ 58 kr83     0.82665E-06 0.00000E+00
+ 59 ru01     0.15093E-04 0.00000E+00
+ 60 pd05     0.16102E-04 0.00000E+00
+ 61 cs35     0.19245E-04 0.00000E+00
+ 62 sm50     0.27974E-05 0.00000E+00
+ 63 eu51     0.54783E-07 0.00000E+00
+ 64 eu53     0.38070E-06 0.00000E+00
+ 65 eu54     0.35040E-07 0.00000E+00
+ 66 gd54     0.79257E-09 0.00000E+00
+ 67 am42     0.13143E-07 0.00000E+00
+ 68 cm43     0.14899E-07 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    3  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   9.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.6666000      0.0000000E+00  0.0000000E+00  0.0000000E+00
+  0.0000000E+00  0.3333000    
+ ------------------------------------------------------------------------------
+ num zone      5           6
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  6 o        0.27570E-01 0.00000E+00
+ 11 gd55     0.23209E-02 0.00000E+00
+ 12 gd57     0.25483E-02 0.00000E+00
+ 21 slag     0.34119E-03 0.00000E+00
+ 30 gd56     0.39460E-03 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    4  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   6.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.0000000E+00  0.6666000      0.0000000E+00  0.0000000E+00
+  0.3333000      0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      7           8
+ radius   0.22500E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.16940E-01 0.00000E+00
+  6 o        0.22920E-01 0.00000E+00
+ 11 gd55     0.17886E-02 0.00000E+00
+ 12 gd57     0.18392E-02 0.00000E+00
+ 21 slag     0.56579E-03 0.00000E+00
+ 30 gd56     0.46747E-03 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    5  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   7.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.0000000E+00  0.2857000      0.0000000E+00  0.2857000    
+  0.4286000      0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      9          10
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.46550E-01 0.46550E-01
+  2 *o*      0.23270E-01 0.23270E-01
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    6  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   1.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.3611000      0.0000000E+00  8.3300002E-02  0.0000000E+00
+  0.0000000E+00  0.5555000    
+ ------------------------------------------------------------------------------
+ num zone     11          12
+ radius   0.39000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.42580E-01 0.00000E+00
+:fier                                                                           
+ condensation boundary was changed from  0.21500E+01 to  0.21544E+01
+*** 4 *** ;egr=  2.1544    
+    keff         nu           mu           fi           teta
+   1.0358       1.1622       2.7930      0.39140      0.81526    
+ s0z(n)=   0.7953002      0.0000000E+00   1.029409      0.0000000E+00
+  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+  0.0000000E+00  0.0000000E+00  0.0000000E+00
+:burn                                                                           
+ *** average burn up =   30.128     (mbt*day)/(kg hm)
+    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
+    { Manturov G., E-mail: abbn@ippe.rssi.ru}
+ 
+       -------------------------------
+ 
+       CONSYST INPUT DATA READ FROM : cons.dat
+       CONSYST PROTOCOL STORED IN   : RESULT
+       GMF X-SECTION'S FILE         : OUT
+       TEMPORARY FILE               : RAB
+       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
+       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
+       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
+ 
+    >>  K-inf(MLT)= 1.53025 Balance= 1.00275 NU= 2.98 FI-Sum=  1.04E+02
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >>  K-inf(MLT)= 1.51545 Balance= 1.00283 NU= 2.98 FI-Sum=  1.05E+02
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    > CONSYST finished at  0: 0: 0:  
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ *************************************************
+   ***k(inf)= 1.01642     ***k(itt)= 1.04657     ***k(integ)= 1.01642    ***
+   **bakl=  0.0000     **length= 0.10000E+11  ***
+   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
+     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
+     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
+     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
+     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
+     *  0.0000     0.28570      0.0000     0.28570     0.42860      0.0000    
+     * 0.36110      0.0000     0.83300E-01  0.0000      0.0000     0.55550    
+ lokal kner      in cell ,ru=           1=  0.9682971      0.9667972    
+ lokal kner      in cell ,ru=           2=   1.089825       1.094075    
+ lokal kner      in cell ,ru=           3=  0.0000000E+00   1.159542    
+ lokal kner      in cell ,ru=           4=  0.0000000E+00  0.7101733    
+ lokal kner      in cell ,ru=           5=  0.0000000E+00  1.2953272E-02
+ lokal kner      in cell ,ru=           6=  0.0000000E+00  0.5379599    
+:corr                                                                           
+ ------------------------------------------------------------------------------
+  backling =  0.0000000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    1  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   51.00000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.5882000      0.1372000      0.1176000      0.0000000E+00
+  0.0000000E+00  0.1586000    
+ ------------------------------------------------------------------------------
+ num zone      1           2
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    u238        bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  5 u238     0.95655E-02 0.00000E+00
+  6 o        0.26970E-01 0.00000E+00
+  8 al       0.19000E-01 0.00000E+00
+ 11 gd55     0.38095E-07 0.00000E+00
+ 12 gd57     0.86864E-07 0.00000E+00
+ 15 pu39     0.16906E-02 0.00000E+00
+ 16 pu40     0.89316E-03 0.00000E+00
+ 17 pu41     0.52172E-03 0.00000E+00
+ 21 slag     0.15200E-03 0.00000E+00
+ 22 tc99     0.23859E-04 0.00000E+00
+ 23 rh03     0.24158E-04 0.00000E+00
+ 24 ag09     0.48104E-05 0.00000E+00
+ 25 cd13     0.17538E-06 0.00000E+00
+ 26 xe35     0.23745E-07 0.00000E+00
+ 27 sm49     0.15682E-05 0.00000E+00
+ 28 sm51     0.21864E-05 0.00000E+00
+ 29 eu55     0.31492E-06 0.00000E+00
+ 30 gd56     0.55825E-06 0.00000E+00
+ 31 np37     0.47431E-07 0.00000E+00
+ 32 np39     0.74373E-06 0.00000E+00
+ 33 pu38     0.22838E-05 0.00000E+00
+ 34 pu42     0.29370E-04 0.00000E+00
+ 35 am41     0.35991E-04 0.00000E+00
+ 36 am2m     0.46936E-06 0.00000E+00
+ 37 am43     0.34513E-05 0.00000E+00
+ 38 cm42     0.22745E-05 0.00000E+00
+ 39 cm44     0.47208E-06 0.00000E+00
+ 40 cm45     0.18811E-07 0.00000E+00
+ 45 sm52     0.28201E-05 0.00000E+00
+ 46 xe31     0.12767E-04 0.00000E+00
+ 47 cs33     0.25997E-04 0.00000E+00
+ 48 nd45     0.12321E-04 0.00000E+00
+ 49 nd43     0.17597E-04 0.00000E+00
+ 50 pm47     0.55816E-05 0.00000E+00
+ 51 mo95     0.18616E-04 0.00000E+00
+ 52 cs34     0.11257E-05 0.00000E+00
+ 53 pr41     0.20963E-04 0.00000E+00
+ 54 pm48     0.20469E-07 0.00000E+00
+ 55 pm8m     0.11146E-06 0.00000E+00
+ 56 rh05     0.75724E-07 0.00000E+00
+ 57 pm49     0.30950E-07 0.00000E+00
+ 58 kr83     0.10948E-05 0.00000E+00
+ 59 ru01     0.19965E-04 0.00000E+00
+ 60 pd05     0.21282E-04 0.00000E+00
+ 61 cs35     0.26313E-04 0.00000E+00
+ 62 sm50     0.38927E-05 0.00000E+00
+ 63 eu51     0.10539E-06 0.00000E+00
+ 64 eu53     0.69774E-06 0.00000E+00
+ 65 eu54     0.90423E-07 0.00000E+00
+ 66 gd54     0.30815E-08 0.00000E+00
+ 67 am42     0.17145E-07 0.00000E+00
+ 68 cm43     0.35913E-07 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    2  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   18.00000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.3888000      0.3333000      0.0000000E+00  0.2222000    
+  5.5500001E-02  0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      3           4
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    u238        bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  5 u238     0.95556E-02 0.00000E+00
+  6 o        0.26970E-01 0.00000E+00
+  8 al       0.19000E-01 0.00000E+00
+ 11 gd55     0.34501E-07 0.00000E+00
+ 12 gd57     0.68770E-07 0.00000E+00
+ 15 pu39     0.16439E-02 0.00000E+00
+ 16 pu40     0.89104E-03 0.00000E+00
+ 17 pu41     0.52509E-03 0.00000E+00
+ 21 slag     0.17278E-03 0.00000E+00
+ 22 tc99     0.26793E-04 0.00000E+00
+ 23 rh03     0.27022E-04 0.00000E+00
+ 24 ag09     0.53745E-05 0.00000E+00
+ 25 cd13     0.15434E-06 0.00000E+00
+ 26 xe35     0.25712E-07 0.00000E+00
+ 27 sm49     0.13101E-05 0.00000E+00
+ 28 sm51     0.23005E-05 0.00000E+00
+ 29 eu55     0.31957E-06 0.00000E+00
+ 30 gd56     0.67833E-06 0.00000E+00
+ 31 np37     0.46786E-07 0.00000E+00
+ 32 np39     0.80012E-06 0.00000E+00
+ 33 pu38     0.25111E-05 0.00000E+00
+ 34 pu42     0.33446E-04 0.00000E+00
+ 35 am41     0.35484E-04 0.00000E+00
+ 36 am2m     0.49578E-06 0.00000E+00
+ 37 am43     0.41325E-05 0.00000E+00
+ 38 cm42     0.25062E-05 0.00000E+00
+ 39 cm44     0.60035E-06 0.00000E+00
+ 40 cm45     0.25101E-07 0.00000E+00
+ 45 sm52     0.32525E-05 0.00000E+00
+ 46 xe31     0.14294E-04 0.00000E+00
+ 47 cs33     0.29182E-04 0.00000E+00
+ 48 nd45     0.13822E-04 0.00000E+00
+ 49 nd43     0.19729E-04 0.00000E+00
+ 50 pm47     0.61827E-05 0.00000E+00
+ 51 mo95     0.20916E-04 0.00000E+00
+ 52 cs34     0.13436E-05 0.00000E+00
+ 53 pr41     0.23561E-04 0.00000E+00
+ 54 pm48     0.24083E-07 0.00000E+00
+ 55 pm8m     0.12575E-06 0.00000E+00
+ 56 rh05     0.85066E-07 0.00000E+00
+ 57 pm49     0.35036E-07 0.00000E+00
+ 58 kr83     0.12255E-05 0.00000E+00
+ 59 ru01     0.22461E-04 0.00000E+00
+ 60 pd05     0.23988E-04 0.00000E+00
+ 61 cs35     0.28660E-04 0.00000E+00
+ 62 sm50     0.48357E-05 0.00000E+00
+ 63 eu51     0.13422E-06 0.00000E+00
+ 64 eu53     0.86482E-06 0.00000E+00
+ 65 eu54     0.11657E-06 0.00000E+00
+ 66 gd54     0.39763E-08 0.00000E+00
+ 67 am42     0.18863E-07 0.00000E+00
+ 68 cm43     0.40381E-07 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    3  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   9.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.6666000      0.0000000E+00  0.0000000E+00  0.0000000E+00
+  0.0000000E+00  0.3333000    
+ ------------------------------------------------------------------------------
+ num zone      5           6
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  6 o        0.27570E-01 0.00000E+00
+ 11 gd55     0.21294E-02 0.00000E+00
+ 12 gd57     0.23825E-02 0.00000E+00
+ 21 slag     0.51274E-03 0.00000E+00
+ 30 gd56     0.58034E-03 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    4  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   6.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.0000000E+00  0.6666000      0.0000000E+00  0.0000000E+00
+  0.3333000      0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      7           8
+ radius   0.22500E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.16940E-01 0.00000E+00
+  6 o        0.22920E-01 0.00000E+00
+ 11 gd55     0.15677E-02 0.00000E+00
+ 12 gd57     0.15726E-02 0.00000E+00
+ 21 slag     0.83992E-03 0.00000E+00
+ 30 gd56     0.68077E-03 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    5  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   7.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.0000000E+00  0.2857000      0.0000000E+00  0.2857000    
+  0.4286000      0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      9          10
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.46550E-01 0.46550E-01
+  2 *o*      0.23270E-01 0.23270E-01
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    6  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   1.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.3611000      0.0000000E+00  8.3300002E-02  0.0000000E+00
+  0.0000000E+00  0.5555000    
+ ------------------------------------------------------------------------------
+ num zone     11          12
+ radius   0.39000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.42580E-01 0.00000E+00
+:fier                                                                           
+ condensation boundary was changed from  0.21500E+01 to  0.21544E+01
+*** 4 *** ;egr=  2.1544    
+    keff         nu           mu           fi           teta
+   1.0164       1.1426       2.7532      0.39495      0.81807    
+ s0z(n)=   0.7953002      0.0000000E+00   1.029409      0.0000000E+00
+  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+  0.0000000E+00  0.0000000E+00  0.0000000E+00
+:burn                                                                           
+ *** average burn up =   37.867     (mbt*day)/(kg hm)
+    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
+    { Manturov G., E-mail: abbn@ippe.rssi.ru}
+ 
+       -------------------------------
+ 
+       CONSYST INPUT DATA READ FROM : cons.dat
+       CONSYST PROTOCOL STORED IN   : RESULT
+       GMF X-SECTION'S FILE         : OUT
+       TEMPORARY FILE               : RAB
+       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
+       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
+       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
+ 
+    >>  K-inf(MLT)= 1.50487 Balance= 1.00290 NU= 2.98 FI-Sum=  1.05E+02
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >>  K-inf(MLT)= 1.48662 Balance= 1.00300 NU= 2.97 FI-Sum=  1.06E+02
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
+    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
+    > CONSYST finished at  0: 0: 0:  
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ therm. calculation avoided
+ *************************************************
+   ***k(inf)= 1.00308     ***k(itt)= 1.03291     ***k(integ)= 1.00308    ***
+   **bakl=  0.0000     **length= 0.10000E+11  ***
+   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
+     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
+     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
+     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
+     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
+     *  0.0000     0.28570      0.0000     0.28570     0.42860      0.0000    
+     * 0.36110      0.0000     0.83300E-01  0.0000      0.0000     0.55550    
+ lokal kner      in cell ,ru=           1=  0.9684380      0.9667348    
+ lokal kner      in cell ,ru=           2=   1.089426       1.094251    
+ lokal kner      in cell ,ru=           3=  0.0000000E+00   1.129987    
+ lokal kner      in cell ,ru=           4=  0.0000000E+00  0.6821093    
+ lokal kner      in cell ,ru=           5=  0.0000000E+00  1.3036838E-02
+ lokal kner      in cell ,ru=           6=  0.0000000E+00  0.5374878    
+:corr                                                                           
+ ------------------------------------------------------------------------------
+  backling =  0.0000000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    1  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   51.00000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.5882000      0.1372000      0.1176000      0.0000000E+00
+  0.0000000E+00  0.1586000    
+ ------------------------------------------------------------------------------
+ num zone      1           2
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    u238        bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  5 u238     0.95271E-02 0.00000E+00
+  6 o        0.26970E-01 0.00000E+00
+  8 al       0.19000E-01 0.00000E+00
+ 11 gd55     0.45666E-07 0.00000E+00
+ 12 gd57     0.86102E-07 0.00000E+00
+ 15 pu39     0.16249E-02 0.00000E+00
+ 16 pu40     0.88787E-03 0.00000E+00
+ 17 pu41     0.51201E-03 0.00000E+00
+ 21 slag     0.19352E-03 0.00000E+00
+ 22 tc99     0.29559E-04 0.00000E+00
+ 23 rh03     0.29690E-04 0.00000E+00
+ 24 ag09     0.57526E-05 0.00000E+00
+ 25 cd13     0.18192E-06 0.00000E+00
+ 26 xe35     0.23863E-07 0.00000E+00
+ 27 sm49     0.15583E-05 0.00000E+00
+ 28 sm51     0.24683E-05 0.00000E+00
+ 29 eu55     0.32978E-06 0.00000E+00
+ 30 gd56     0.77236E-06 0.00000E+00
+ 31 np37     0.70231E-07 0.00000E+00
+ 32 np39     0.76346E-06 0.00000E+00
+ 33 pu38     0.38968E-05 0.00000E+00
+ 34 pu42     0.36232E-04 0.00000E+00
+ 35 am41     0.42640E-04 0.00000E+00
+ 36 am2m     0.67095E-06 0.00000E+00
+ 37 am43     0.50070E-05 0.00000E+00
+ 38 cm42     0.30264E-05 0.00000E+00
+ 39 cm44     0.86353E-06 0.00000E+00
+ 40 cm45     0.43526E-07 0.00000E+00
+ 45 sm52     0.35171E-05 0.00000E+00
+ 46 xe31     0.15512E-04 0.00000E+00
+ 47 cs33     0.32098E-04 0.00000E+00
+ 48 nd45     0.15280E-04 0.00000E+00
+ 49 nd43     0.21873E-04 0.00000E+00
+ 50 pm47     0.63142E-05 0.00000E+00
+ 51 mo95     0.23157E-04 0.00000E+00
+ 52 cs34     0.16850E-05 0.00000E+00
+ 53 pr41     0.26200E-04 0.00000E+00
+ 54 pm48     0.23450E-07 0.00000E+00
+ 55 pm8m     0.12846E-06 0.00000E+00
+ 56 rh05     0.76406E-07 0.00000E+00
+ 57 pm49     0.31541E-07 0.00000E+00
+ 58 kr83     0.13592E-05 0.00000E+00
+ 59 ru01     0.24843E-04 0.00000E+00
+ 60 pd05     0.26487E-04 0.00000E+00
+ 61 cs35     0.32765E-04 0.00000E+00
+ 62 sm50     0.52629E-05 0.00000E+00
+ 63 eu51     0.17122E-06 0.00000E+00
+ 64 eu53     0.10892E-05 0.00000E+00
+ 65 eu54     0.17401E-06 0.00000E+00
+ 66 gd54     0.74402E-08 0.00000E+00
+ 67 am42     0.20861E-07 0.00000E+00
+ 68 cm43     0.60143E-07 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    2  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   18.00000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.3888000      0.3333000      0.0000000E+00  0.2222000    
+  5.5500001E-02  0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      3           4
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    u238        bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  5 u238     0.95146E-02 0.00000E+00
+  6 o        0.26970E-01 0.00000E+00
+  8 al       0.19000E-01 0.00000E+00
+ 11 gd55     0.39477E-07 0.00000E+00
+ 12 gd57     0.67202E-07 0.00000E+00
+ 15 pu39     0.15675E-02 0.00000E+00
+ 16 pu40     0.88445E-03 0.00000E+00
+ 17 pu41     0.51605E-03 0.00000E+00
+ 21 slag     0.22009E-03 0.00000E+00
+ 22 tc99     0.33166E-04 0.00000E+00
+ 23 rh03     0.33136E-04 0.00000E+00
+ 24 ag09     0.64132E-05 0.00000E+00
+ 25 cd13     0.15390E-06 0.00000E+00
+ 26 xe35     0.25787E-07 0.00000E+00
+ 27 sm49     0.12752E-05 0.00000E+00
+ 28 sm51     0.25543E-05 0.00000E+00
+ 29 eu55     0.33272E-06 0.00000E+00
+ 30 gd56     0.93193E-06 0.00000E+00
+ 31 np37     0.69008E-07 0.00000E+00
+ 32 np39     0.82170E-06 0.00000E+00
+ 33 pu38     0.42807E-05 0.00000E+00
+ 34 pu42     0.41300E-04 0.00000E+00
+ 35 am41     0.41866E-04 0.00000E+00
+ 36 am2m     0.70052E-06 0.00000E+00
+ 37 am43     0.59836E-05 0.00000E+00
+ 38 cm42     0.33340E-05 0.00000E+00
+ 39 cm44     0.10972E-05 0.00000E+00
+ 40 cm45     0.57874E-07 0.00000E+00
+ 45 sm52     0.40467E-05 0.00000E+00
+ 46 xe31     0.17328E-04 0.00000E+00
+ 47 cs33     0.35991E-04 0.00000E+00
+ 48 nd45     0.17129E-04 0.00000E+00
+ 49 nd43     0.24494E-04 0.00000E+00
+ 50 pm47     0.69729E-05 0.00000E+00
+ 51 mo95     0.25999E-04 0.00000E+00
+ 52 cs34     0.20083E-05 0.00000E+00
+ 53 pr41     0.29435E-04 0.00000E+00
+ 54 pm48     0.27505E-07 0.00000E+00
+ 55 pm8m     0.14389E-06 0.00000E+00
+ 56 rh05     0.85897E-07 0.00000E+00
+ 57 pm49     0.35810E-07 0.00000E+00
+ 58 kr83     0.15197E-05 0.00000E+00
+ 59 ru01     0.27938E-04 0.00000E+00
+ 60 pd05     0.29844E-04 0.00000E+00
+ 61 cs35     0.35641E-04 0.00000E+00
+ 62 sm50     0.64032E-05 0.00000E+00
+ 63 eu51     0.21261E-06 0.00000E+00
+ 64 eu53     0.13487E-05 0.00000E+00
+ 65 eu54     0.22365E-06 0.00000E+00
+ 66 gd54     0.95857E-08 0.00000E+00
+ 67 am42     0.22947E-07 0.00000E+00
+ 68 cm43     0.67435E-07 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    3  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   9.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.6666000      0.0000000E+00  0.0000000E+00  0.0000000E+00
+  0.0000000E+00  0.3333000    
+ ------------------------------------------------------------------------------
+ num zone      5           6
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.11680E-01 0.00000E+00
+  6 o        0.27570E-01 0.00000E+00
+ 11 gd55     0.19893E-02 0.00000E+00
+ 12 gd57     0.22585E-02 0.00000E+00
+ 21 slag     0.64256E-03 0.00000E+00
+ 30 gd56     0.71458E-03 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    4  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   6.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.0000000E+00  0.6666000      0.0000000E+00  0.0000000E+00
+  0.3333000      0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      7           8
+ radius   0.22500E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.16940E-01 0.00000E+00
+  6 o        0.22920E-01 0.00000E+00
+ 11 gd55     0.14085E-02 0.00000E+00
+ 12 gd57     0.13766E-02 0.00000E+00
+ 21 slag     0.10435E-02 0.00000E+00
+ 30 gd56     0.83242E-03 0.00000E+00
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    5  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   7.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.0000000E+00  0.2857000      0.0000000E+00  0.2857000    
+  0.4286000      0.0000000E+00
+ ------------------------------------------------------------------------------
+ num zone      9          10
+ radius   0.34000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.46550E-01 0.46550E-01
+  2 *o*      0.23270E-01 0.23270E-01
+ ------------------------------------------------------------------------------
+  number of cells =           6
+          cell number    6  number of zone= 2
+ << geometry characteristics >>
+    geometry of cell- cilindrical index=           2
+  kratnost of cell =   1.000000    
+  inner radius of cell =  0.0000000E+00
+  out square ratio =  0.3611000      0.0000000E+00  8.3300002E-02  0.0000000E+00
+  0.0000000E+00  0.5555000    
+ ------------------------------------------------------------------------------
+ num zone     11          12
+ radius   0.39000E+00 0.48000E+00
+ temper   0.57300E+03 0.57300E+03
+ rez_izot    bad         bad 
+ ------------------------------------------------------------------------------
+    izotop   /             concentration number of izotops=68
+  1 *h*      0.00000E+00 0.46550E-01
+  2 *o*      0.00000E+00 0.23270E-01
+  3 zr       0.42580E-01 0.00000E+00
+:fier                                                                           
+ condensation boundary was changed from  0.21500E+01 to  0.21544E+01
+*** 4 *** ;egr=  2.1544    
+    keff         nu           mu           fi           teta
+   1.0031       1.1300       2.7196      0.39794      0.82023    
+ s0z(n)=   0.7953002      0.0000000E+00   1.029409      0.0000000E+00
+  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+  0.0000000E+00  0.0000000E+00  0.0000000E+00
 :stop                                                                           

@@ -71,4 +71,37 @@ pu41
   ET=10.5E+6,2.15,2.15,0.,
   NBV=1,1,1,1,1,1
  &end
-:stop
+ 
+@ 200 days!----------     
+:burn                             
+ &vvod qv=103.361,dtim=200.0,           
+ &end                             
+:corr                             
+ &vvod &end                       
+:fier                             
+ &vvod &end                       
+@ 200 days!----------     
+:burn                             
+ &vvod qv=103.361,dtim=200.0,           
+ &end                             
+:corr                             
+ &vvod &end                       
+:fier                             
+ &vvod &end                       
+@ 200 days!----------     
+:burn                             
+ &vvod qv=103.361,dtim=200.0,           
+ &end                             
+:corr                             
+ &vvod &end                       
+:fier                             
+ &vvod &end                       
+@ 200 days!----------     
+:burn                             
+ &vvod qv=103.361,dtim=200.0,           
+ &end                             
+:corr                             
+ &vvod &end                       
+:fier                             
+ &vvod &end                       
+
