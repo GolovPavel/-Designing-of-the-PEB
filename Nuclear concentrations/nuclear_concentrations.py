@@ -14,8 +14,10 @@ def calc_fuel_nc():
     N1UO2 = NUO2 * (100 - data["%1PuO2"]) / 100
     N2UO2 = NUO2 * (100 - data["%2PuO2"]) / 100
 
-    N1U238 = N1UO2
-    N2U238 = N2UO2
+    N1U238 = N1UO2 * 0.93
+    N1U235 = N1UO2 * 0.007
+    N2U238 = N2UO2 * 0.93
+    N2U235 = N2UO2 * 0.007
 
     N1Pu239 = N1PuO2 * data["%richPu39"] / 100
     N1Pu240 = N1PuO2 * data["%richPu40"] / 100
@@ -27,10 +29,10 @@ def calc_fuel_nc():
 
     out.write("=============================\n")
     out.write("Fuel: UO2 + PuO2")
-    out.write("\nNOTop: %.3e\n\nN1U238: %.3e\nN1Pu239: %.3e\nN1Pu240: %.3e\nN1Pu241: %.3e\n"
-              % (NO, N1U238, N1Pu239, N1Pu240, N1Pu241))
-    out.write("\nN2U238: %.3e\nN2Pu239: %.3e\nN2Pu240: %.3e\nN2Pu241: %.3e\n"
-              % (N2U238, N2Pu239, N2Pu240, N2Pu241))
+    out.write("\nNOTop: %.3e\n\nN1U235: %.3e\nN1U238: %.3e\nN1Pu239: %.3e\nN1Pu240: %.3e\nN1Pu241: %.3e\n"
+              % (NO, N1U235, N1U238, N1Pu239, N1Pu240, N1Pu241))
+    out.write("\nN2U235: %.3e\nN2U238: %.3e\nN2Pu239: %.3e\nN2Pu240: %.3e\nN2Pu241: %.3e\n"
+              % (N1U235, N2U238, N2Pu239, N2Pu240, N2Pu241))
     out.write("=============================\n")
 
 # H2O - moderator
@@ -95,12 +97,10 @@ def calc_air_nc():
 
 #99%Zr + 1%Nb
 def calc_tvel_shell_nc():
-    N0Zr = data["roZr"] * NA / data["MZr"] * 1e-24
-    NZr = N0Zr * data["%Zr"] / 100
-    NNb = N0Zr * (100 - data["%Zr"]) / 100
+    NZr = data["roZr"] * NA / data["MZr"] * 1e-24
 
     out.write("Shell of Tvel: Zr 99% + Nb 1%\n")
-    out.write("NZr: %.3e\nNNb: %.3e\n" % (NZr, NNb))
+    out.write("NZr: %.3e\n" % (NZr))
     out.write("=============================\n")
 
 
