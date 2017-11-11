@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import utils
-import sympy as sp
 from iapws import IAPWS97
 
 step = 0.01
@@ -63,6 +62,13 @@ def temp_distribution_of_outer_shell(isPlot):
         Ra = 1 / a
         t_sh_outer[i] = t_water[i] + q[i] * Ra
 
+        # if (t_sh_outer[i] > ts[0]):
+        #     aBoil = 4.32 * (data["P1c"] ** 0.14 + 1.28 * 10 ** -2 * data["P1c"] ** 2) * q[i] ** 0.7
+        #     RaBoil = 1 / aBoil
+        #     t_surf_boil = ts[0] + q[i] * RaBoil
+        #     print(np.abs(t_sh_outer[i] - t_surf_boil))
+
+
     if isPlot:
         plt.plot(z, t_sh_outer, label=r'$t_{об.н}$')
         plt.plot(z, ts, 'r--',  label=r'$t_s$')
@@ -112,26 +118,39 @@ def calculate_distributions(isPlot):
     temp_distribution_of_inner_shell(isPlot)
     temp_distribution_of_fuel(isPlot)
 
+
 def main_characteristics_TVSM():
     out = open("distributionOut.txt", "w")
 
+    qVMax = data["qV"] * data["kR"]
+    qlAvgMax = data["qlAvg"] * data["kR"]
     Qtvsm = data["Qtvs"] * data["kR"]
     qMax = max(q) * 1e-6
     qAvg = sum(q) / len(q) * 1e-6
+    roW = data["roH2O"] * Wtvsm
     t_sh_outer_max = max(t_sh_outer)
     t_sh_inner_max = max(t_sh_inner)
     t_fuel35_max = max(t_fuel35)
     t_fuel14_max = max(t_fuel14)
-    print(max(q) / data["Haz"])
+
+    upper_ts = []
+    for i in range(0, len(z)):
+        if t_sh_outer[i] >= ts[0]:
+            upper_ts.append(i)
+            break
+    for i in range(len(z) - 1, -1, -1):
+        if t_sh_outer[i] >= ts[0]:
+            upper_ts.append(i)
+            break
+    LBoil = z[upper_ts[1]] - z[upper_ts[0]]
 
 
-    out.write(("Qtvsm: %.3f MVt\nqMax: %.3f MVt/m^2\nqAvg: %.3f MVt/m^2\n" +\
-        "Gtvsm: %.3f kg/s\nWtvsm: %.3f kg/s\n" +\
+    out.write(("qVMax: %.3f MVt/m^3\nqlAvgMax: %.3f Vt/cm\nQtvsm: %.3f MVt\nqMax: %.3f MVt/m^2\nqAvg: %.3f MVt/m^2\n" +\
+        "Gtvsm: %.3f kg/s\nWtvsm: %.3f kg/s\nroWtvsm: %.3f kg/(m^2*s)\n" +\
         "tOutShMax: %.3f C\ntInShMax: %.3f C\n" +\
-        "tFuel35Max:  %.3f C\ntFuel14Max:  %.3f C")
-        % (Qtvsm, qMax, qAvg, Gtvsm, Wtvsm, t_sh_outer_max, t_sh_inner_max, t_fuel35_max, t_fuel14_max))
+        "tFuel35Max:  %.3f C\ntFuel14Max:  %.3f C\nLBoil: %.3f m\n")
+        % (qVMax, qlAvgMax, Qtvsm, qMax, qAvg, Gtvsm, Wtvsm, roW, t_sh_outer_max, t_sh_inner_max, t_fuel35_max, t_fuel14_max, LBoil))
     out.close()
-
 
 data = {}
 utils.fill_dict_from_file(data, "distributionsInput.txt")
@@ -139,7 +158,7 @@ utils.fill_dict_from_file(data, "distributionsInput.txt")
 #Constants calculation
 Gtvsm = data["Gtn"] * data["kR"]
 Wtvsm = data["w"] * data["kR"]
-water=IAPWS97(P=data["P1c"], x = 0)
+water=IAPWS97(P = data["P1c"], x = 0)
 ts = list(map(lambda x: water.T - 273, np.zeros(z.size)))
 
 calculate_distributions(False)
