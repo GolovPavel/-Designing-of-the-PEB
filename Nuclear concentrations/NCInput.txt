@@ -1,6 +1,4 @@
-N0UO2: 0.018539e24
-dTop: 6.8
-deltaTop: 0.5
+N0UO2: 0.022e24
 %1PuO2: 30
 %2PuO2: 28
 %richPu39: 52
@@ -8,21 +6,20 @@ deltaTop: 0.5
 %richPu41: 15
 
 roB4C: 2.5
-dP: 6.8
-deltaP: 0.5
 %richB10: 19.
 MB4C: 52
+roNi: 8.9
+MNi: 58
+roCr: 7.19
+MCr: 52
+%Ni: 56
+%Cr: 42
 
 %richB10AZ: 90
-dAZ: 20.5
-deltaAZ: 0.5
 
 roGd2O3: 7.618
 %richGd155: 14.8
 %richGd157: 15.7
-dSVP1: 6.8
-dSVP2: 4.5
-deltaSVP: 0.5
 MGd2O3: 362
 
 roH2O: 0.698
@@ -30,6 +27,7 @@ MH2O: 18
 
 roZr: 6.5
 MZr: 91
+%Zr: 99
 
 roNO2: 1.45
 MNO2: 46

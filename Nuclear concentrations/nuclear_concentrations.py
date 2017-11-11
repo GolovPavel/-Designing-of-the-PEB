@@ -1,119 +1,120 @@
 import utils
 import math
 
-Na = 6.002e23
+NA = 6.002e23
 
+# UO2+PuO2 - MOX fuel
+def calc_fuel_nc():
+    NUO2 = data["N0UO2"] * 1e-24
+    NO = 2 * NUO2
 
-def calc_nuclear_concentrations_and_write_to_file(data):
-    out = open('NCOut.txt', 'w')
-
-    N0Zr = data['roZr'] * Na / data['MZr'] * 1e-24
-
-    # UO2+PuO2 - MOX fuel
-    Stv = math.pi * data['dTop'] ** 2 / 4
-    STop = math.pi * (data['dTop'] - 2 * data['deltaTop']) ** 2 / 4
-    SOb = math.pi * (data['dTop'] ** 2 - (data['dTop'] - 2 * data['deltaTop']) ** 2) / 4
-    NUO2 = data["N0UO2"] * (STop / Stv) * 1e-24
-    NZrTop = N0Zr * SOb / Stv
-    NOtop = 2 * NUO2
     N1PuO2 = NUO2 * data["%1PuO2"] / 100
     N2PuO2 = NUO2 * data["%2PuO2"] / 100
+
     N1UO2 = NUO2 * (100 - data["%1PuO2"]) / 100
     N2UO2 = NUO2 * (100 - data["%2PuO2"]) / 100
+
     N1U238 = N1UO2
     N2U238 = N2UO2
+
     N1Pu239 = N1PuO2 * data["%richPu39"] / 100
     N1Pu240 = N1PuO2 * data["%richPu40"] / 100
     N1Pu241 = N1PuO2 * data["%richPu41"] / 100
+
     N2Pu239 = N2PuO2 * data["%richPu39"] / 100
     N2Pu240 = N2PuO2 * data["%richPu40"] / 100
     N2Pu241 = N2PuO2 * data["%richPu41"] / 100
+
     out.write("=============================\n")
     out.write("Fuel: UO2 + PuO2")
-    out.write("\nNOTop: %.3e\nNZrTop: %.3e\n\nN1U238: %.3e\nN1Pu239: %.3e\nN1Pu240: %.3e\nN1Pu241: %.3e\n"
-              % (NOtop, NZrTop, N1U238, N1Pu239, N1Pu240, N1Pu241))
+    out.write("\nNOTop: %.3e\n\nN1U238: %.3e\nN1Pu239: %.3e\nN1Pu240: %.3e\nN1Pu241: %.3e\n"
+              % (NO, N1U238, N1Pu239, N1Pu240, N1Pu241))
     out.write("\nN2U238: %.3e\nN2Pu239: %.3e\nN2Pu240: %.3e\nN2Pu241: %.3e\n"
               % (N2U238, N2Pu239, N2Pu240, N2Pu241))
     out.write("=============================\n")
 
-    # H2O - moderator
-    N0H2O = data['roH2O'] * Na / data['MH2O'] * 1e-24
+# H2O - moderator
+def calc_h2o_nc():
+    N0H2O = data['roH2O'] * NA / data['MH2O'] * 1e-24
     NH = 2 * N0H2O
     NOmod = N0H2O
+
     out.write("Moderator: H2O\n")
     out.write("NH: %.3e\nNO: %.3e\n" % (NH, NOmod))
     out.write("=============================\n")
 
-    # B4C - absorber
-    Stv = math.pi * data['dP'] ** 2 / 4
-    SP = math.pi * (data['dP'] - 2 * data['deltaP']) ** 2 / 4
-    SOb = math.pi * (data['dP'] ** 2 - (data['dP'] - 2 * data['deltaP']) ** 2) / 4
-    N0B4C = data['roB4C'] * Na / data['MB4C'] * 1e-24
-    NB4C = N0B4C * SP / Stv
+
+# B4C - absorber
+def calc_pel_nc():
+    NB4C = data['roB4C'] * NA / data['MB4C'] * 1e-24
     NB = 4 * NB4C
     NB10 = NB * data['%richB10'] / 100
-    NB11 = NB * (100 - data['%richB10']) / 100
     NC = NB4C
-    NZrP = N0Zr * SOb / Stv
-    out.write("Absorber: B4C\n")
-    out.write("NB10: %.3e\nNB11: %.3e\nNC: %.3e\nNZr: %.3e\n" % (NB10, NB11, NC, NZrP))
+
+    NCr = data['roCr'] * NA / data['MCr'] * data["%Cr"] / 100 * 1e-24
+    NNi = data['roNi'] * NA / data['MNi'] * data["%Ni"] / 100 * 1e-24
+
+    out.write("Pel: B4C\n")
+    out.write("NB10: %.3e\nNC: %.3e\n" \
+        "\nNCr: %.3f\nNNi: %.3f\n" % (NB10, NC, NCr, NNi))
     out.write("=============================\n")
 
-    # Gd2O3 - burnout absorber, d1
-    Stv = math.pi * data['dSVP1'] ** 2 / 4
-    Ssvp = math.pi * (data['dSVP1'] - 2 * data['deltaSVP']) ** 2 / 4
-    SOb = math.pi * (data['dSVP1'] ** 2 - (data['dSVP1'] - 2 * data['deltaSVP']) ** 2) / 4
-    N0Gd2O3 = data['roGd2O3'] * Na / data['MGd2O3'] * 1e-24
-    NGd2O3 = N0Gd2O3 * Ssvp / Stv
-    NGd1 = NGd2O3 * 2
-    N1Gd155 = NGd1 * data['%richGd155'] / 100
-    N1Gd157 = NGd1 * data['%richGd157'] / 100
-    NOsvp1 = NGd2O3 * 3
-    NZrSVP1 = N0Zr * SOb / Stv
-    out.write("Burnout absorber d1: Gd2O3\n")
-    out.write("NGd155: %.3e\nNGd157: %.3e\nNO: %.3e\nNZr: %.3e\n" % (N1Gd155, N1Gd157, NOsvp1, NZrSVP1))
+# Gd2O3 - burnout absorber
+def calc_svp_nc():
+    NGd2O3 = data['roGd2O3'] * NA / data['MGd2O3'] * 1e-24
+
+    NGd = NGd2O3 * 2
+    NGd55 = NGd * data['%richGd155'] / 100
+    NGd57 = NGd * data['%richGd157'] / 100
+
+    NO = NGd2O3 * 3
+
+    out.write("Burnout absorber: Gd2O3\n")
+    out.write("NGd55: %.3e\nNGd57: %.3e\nNO: %.3e\n" % (NGd55, NGd57, NO))
     out.write("=============================\n")
 
-    # Gd2O3 - burnout absorber, d2
-    Stv = math.pi * data['dSVP2'] ** 2 / 4
-    Ssvp = math.pi * (data['dSVP2'] - 2 * data['deltaSVP']) ** 2 / 4
-    SOb = math.pi * (data['dSVP2'] ** 2 - (data['dSVP2'] - 2 * data['deltaSVP']) ** 2) / 4
-    N0Gd2O3 = data['roGd2O3'] * Na / data['MGd2O3'] * 1e-24
-    NGd2O3 = N0Gd2O3 * Ssvp / Stv
-    NGd2 = NGd2O3 * 2
-    N2Gd155 = NGd2 * data['%richGd155'] / 100
-    N2Gd157 = NGd2 * data['%richGd157'] / 100
-    NOsvp2 = NGd2O3 * 3
-    NZrSVP2 = N0Zr * SOb / Stv
-    out.write("Burnout absorber d2: Gd2O3\n")
-    out.write("NGd155: %.3e\nNGd157: %.3e\nNO: %.3e\nNZr: %.3e\n" % (N2Gd155, N2Gd157, NOsvp2, NZrSVP2))
-    out.write("=============================\n")
-
-    #B4C, emergency protection bar
-    S = math.pi * data['dAZ'] ** 2 / 4
-    SAZ = math.pi * (data['dAZ'] - 2 * data['deltaAZ']) ** 2 / 4
-    SOb = math.pi * (data['dAZ'] ** 2 - (data['dAZ'] - 2 * data['deltaAZ']) ** 2) / 4
-    NB4C = SAZ / S * N0B4C
+#B4C, emergency protection bar
+def calc_protection_bar_nc():
+    NB4C = data['roB4C'] * NA / data['MB4C'] * 1e-24
     NB = 4 * NB4C
     NB10 = NB * data['%richB10AZ'] / 100
-    NB11 = NB * (100 - data['%richB10AZ']) / 100
     NC = NB4C
-    NZr = N0Zr * SOb / S
+
     out.write("Emergency protection bar: B4C\n")
-    out.write("NB10: %.3e\nNB11: %.3e\nNC: %.3e\nNZr: %.3e\n" % (NB10, NB11, NC, NZr))
+    out.write("NB10: %.3e\nNC: %.3e\n" % (NB10, NC))
     out.write("=============================\n")
 
-    #Air, NO2
-    N0NO2 = data['roNO2'] * Na / data['MNO2'] * 1e-24
-    NOAir = 2 * N0NO2
-    NNAir = N0NO2
+#NO2
+def calc_air_nc():
+    NNO2 = data['roNO2'] * NA / data['MNO2'] * 1e-24
+    NO = 2 * NNO2
+    NN = NNO2
     out.write("Air: NO2\n")
-    out.write("NN: %.3e\nNO: %.3e\n" % (NNAir, NOAir))
+    out.write("NN: %.3e\nNO: %.3e\n" % (NN, NO))
     out.write("=============================\n")
 
+#99%Zr + 1%Nb
+def calc_tvel_shell_nc():
+    N0Zr = data["roZr"] * NA / data["MZr"] * 1e-24
+    NZr = N0Zr * data["%Zr"] / 100
+    NNb = N0Zr * (100 - data["%Zr"]) / 100
 
-    out.close()
+    out.write("Shell of Tvel: Zr 99% + Nb 1%\n")
+    out.write("NZr: %.3e\nNNb: %.3e\n" % (NZr, NNb))
+    out.write("=============================\n")
+
 
 data = {}
 utils.fill_dict_from_file(data, 'NCInput.txt')
-calc_nuclear_concentrations_and_write_to_file(data)
+
+out = open('NCOut.txt', 'w')
+
+calc_fuel_nc()
+calc_h2o_nc()
+calc_pel_nc()
+calc_svp_nc()
+calc_protection_bar_nc()
+calc_air_nc()
+calc_tvel_shell_nc()
+
+out.close()
