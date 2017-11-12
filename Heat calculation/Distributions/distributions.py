@@ -112,7 +112,7 @@ def temp_distribution_of_fuel(isPlot):
         plt.show()
 
 def calculate_distributions(isPlot):
-    q_distribution_over_the_height_calc(isPlot)
+    # q_distribution_over_the_height_calc(isPlot)
     temp_distribution_of_water_calc(isPlot)
     temp_distribution_of_outer_shell(isPlot)
     temp_distribution_of_inner_shell(isPlot)
@@ -120,7 +120,7 @@ def calculate_distributions(isPlot):
 
 
 def main_characteristics_TVSM():
-    out = open("distributionOut.txt", "w")
+    out = open("..\\Distributions\\distributionOut.txt", "w")
 
     qVMax = data["qV"] * data["kR"]
     qlAvgMax = data["qlAvg"] * data["kR"]
@@ -153,7 +153,7 @@ def main_characteristics_TVSM():
     out.close()
 
 data = {}
-utils.fill_dict_from_file(data, "distributionsInput.txt")
+utils.fill_dict_from_file(data, "..\\Distributions\\distributionsInput.txt")
 
 #Constants calculation
 Gtvsm = data["Gtn"] * data["kR"]
@@ -161,5 +161,7 @@ Wtvsm = data["w"] * data["kR"]
 water=IAPWS97(P = data["P1c"], x = 0)
 ts = list(map(lambda x: water.T - 273, np.zeros(z.size)))
 
-calculate_distributions(False)
-main_characteristics_TVSM()
+q_distribution_over_the_height_calc(False)
+if __name__ == "__main__":
+    calculate_distributions(False)
+    main_characteristics_TVSM()

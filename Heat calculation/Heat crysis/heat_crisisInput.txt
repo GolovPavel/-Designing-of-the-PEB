@@ -1,4 +1,4 @@
-dT: 10.4 mm
+dT: 8.1 mm
 x: 1.411 relative step of grid
 Haz: 1300 mm
 roWtvsm: 3217.152 kg/(m^2*s)
