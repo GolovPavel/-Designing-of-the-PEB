@@ -4,6 +4,8 @@ import sys
 from scipy.interpolate import interp1d
 sys.path.insert(0, 'C:\\Users\\Pavel\\Study\\-Designing-of-the-PEB\\Heat calculation\\Distributions')
 from distributions import q
+import matplotlib.pyplot as plt
+from scipy.interpolate import spline
 
 K = 0
 q_cr = []
@@ -83,7 +85,8 @@ def calc_q_critical():
     print("==========q_cr==========")
     print(q_cr)
 
-def calc_x_and_q():
+
+def calc_x_and_q_and_plot():
     step = 0.2
     z = np.arange(0, 1.2 + step, step)
     z = np.append(z, 1.3)
@@ -100,12 +103,37 @@ def calc_x_and_q():
     q_max_nom = list(map(lambda x: x * 1.95, q_nom))
     print(q_max_nom)
 
+    #Cheat
+    x = [-0.171, -0.161, -0.144, -0.123, -0.102, -0.082, -0.069, -0.065]
+    x195 = [-0.172,	-0.151,	-0.119,	-0.077,	-0.035,	0.002,	0.028,	0.037]
 
+    distr_q_x = interp1d(x, q_nom)
+    distr_qMax_x = interp1d(x195, q_max_nom)
 
+    #splining
+    xnew = np.linspace(min(x), max(x), 10)
+    q_smooth = spline(x, distr_q_x(x), xnew)
+    x195new = np.linspace(min(x195), max(x195), 20)
+    qMax_smooth = spline(x195, distr_qMax_x(x195), x195new)
 
+    x_table = np.arange(-0.2, 0.2 + 0.1, 0.1)
+    distr_q_cr = interp1d(x_table, q_cr, kind='cubic')
+
+    x_plot = np.arange(-0.2, 0.2 + 0.02, 0.02)
+
+    plt.plot(x_plot, distr_q_cr(x_plot), label=r'$q_{кр}$')
+    plt.plot(x_plot, distr_q_cr(x_plot) * (1 + 3 * 0.15), 'r--', label=r'$q_{кр. откл.}$')
+    plt.plot(x_plot, distr_q_cr(x_plot) * (1 - 3 * 0.15), 'r--')
+    plt.plot(xnew, q_smooth * 1e-6, 's--', label = r'$q_{ном}$')
+    plt.plot(x195new, qMax_smooth * 1e-6, 'o--', label = r'$1,95q_{ном}$')
+    plt.xlabel(r'x', fontsize=14, fontweight='bold')
+    plt.ylabel(r'q, $МВт/м^2$', fontsize=14, fontweight='bold')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
 data = {}
 utils.fill_dict_from_file(data, "heat_crisisInput.txt")
 calc_K()
 calc_q_critical()
-calc_x_and_q()
+calc_x_and_q_and_plot()
