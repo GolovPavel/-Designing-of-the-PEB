@@ -6,6 +6,8 @@ sys.path.insert(0, 'C:\\Users\\Pavel\\Study\\-Designing-of-the-PEB\\Heat calcula
 from distributions import q
 import matplotlib.pyplot as plt
 from scipy.interpolate import spline
+from iapws import IAPWS97
+
 
 K = 0
 q_cr = []
@@ -103,9 +105,23 @@ def calc_x_and_q_and_plot():
     q_max_nom = list(map(lambda x: x * 1.95, q_nom))
     print(q_max_nom)
 
-    #Cheat
-    x = [-0.171, -0.161, -0.144, -0.123, -0.102, -0.082, -0.069, -0.065]
-    x195 = [-0.172,	-0.151,	-0.119,	-0.077,	-0.035,	0.002,	0.028,	0.037]
+    #x calculation
+    param = {}
+    utils.fill_dict_from_file(param, "../Distributions/distributionsInput.txt")
+    qMax = param["kV"] * param["qSr"] * 1e6
+    z = np.append(np.arange(0, 1.2 + 0.2, 0.2), 1.3)
+    f0 = -1 * (qMax * (param["Haz"] + 2 * param["deltaZ"])) / np.pi  * np.sin(np.pi / 2 * ((param["Haz"]) / (param["Haz"] + 2 * param["deltaZ"])))
+    f = -1 * (qMax * (param["Haz"] + 2 * param["deltaZ"])) / np.pi  * np.sin(np.pi / 2 * ((param["Haz"] - 2 * z) / (param["Haz"] + 2 * param["deltaZ"]))) - f0
+    water1 = IAPWS97(T = 294.7 + 273, P = 12.7)
+    water2 = IAPWS97(P = 12.7, x = 0.0)
+    x_in = (water1.h - water2.h) / 1.1554e+006 * 1e3 + 0.01
+    x = x_in + (param["kG"] * param["Pt"]) / (param["kQ"] * param["kR"] * param["Gtn"] * 1.1504e+006) * f
+    x195 = x_in + (param["kG"] * param["Pt"]) / (param["kQ"] * param["kR"] * param["Gtn"] * 1.1504e+006) * f * data["n"]
+    print("----------x:----------\n")
+    print(x)
+    print("---------x195:--------\n")
+    print(x195)
+
 
     distr_q_x = interp1d(x, q_nom)
     distr_qMax_x = interp1d(x195, q_max_nom)
