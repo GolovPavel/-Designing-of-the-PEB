@@ -4,4 +4,4 @@ Haz: 1300 mm
 roWtvsm: 3217.152 kg/(m^2*s)
 Z: 0.2 m
 ksiDr: 0.215
-n: 1.95
+n: 2.3

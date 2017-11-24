@@ -101,8 +101,8 @@ def calc_x_and_q_and_plot():
     print("==========q_nom'==========")
     print(q_nom)
 
-    print("==========1.95q_nom======")
-    q_max_nom = list(map(lambda x: x * 1.95, q_nom))
+    print("==========%.2fq_nom======" % data["n"])
+    q_max_nom = list(map(lambda x: x * float(data["n"]), q_nom))
     print(q_max_nom)
 
     #x calculation
@@ -116,10 +116,10 @@ def calc_x_and_q_and_plot():
     water2 = IAPWS97(P = 12.7, x = 0.0)
     x_in = (water1.h - water2.h) / 1.1554e+006 * 1e3 + 0.01
     x = x_in + (param["kG"] * param["Pt"]) / (param["kQ"] * param["kR"] * param["Gtn"] * 1.1504e+006) * f
-    x195 = x_in + (param["kG"] * param["Pt"]) / (param["kQ"] * param["kR"] * param["Gtn"] * 1.1504e+006) * f * data["n"]
+    x195 = x_in + (param["kG"] * param["Pt"]) / (param["kQ"] * param["kR"] * param["Gtn"] * 1.1504e+006) * f * float(data["n"])
     print("----------x:----------\n")
     print(x)
-    print("---------x195:--------\n")
+    print("---------x%.2f:--------\n" % data["n"])
     print(x195)
 
 
@@ -141,7 +141,7 @@ def calc_x_and_q_and_plot():
     plt.plot(x_plot, distr_q_cr(x_plot) * (1 + 3 * 0.15), 'r--', label=r'$q_{кр. откл.}$')
     plt.plot(x_plot, distr_q_cr(x_plot) * (1 - 3 * 0.15), 'r--')
     plt.plot(xnew, q_smooth * 1e-6, 's--', label = r'$q_{ном}$')
-    plt.plot(x195new, qMax_smooth * 1e-6, 'o--', label = r'$1,95q_{ном}$')
+    plt.plot(x195new, qMax_smooth * 1e-6, 'o--', label = (r'$%.1fq_{ном}$' % data["n"]))
     plt.xlabel(r'x', fontsize=14, fontweight='bold')
     plt.ylabel(r'q, $МВт/м^2$', fontsize=14, fontweight='bold')
     plt.legend()

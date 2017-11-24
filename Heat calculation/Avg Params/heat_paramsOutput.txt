@@ -3,14 +3,14 @@
 ----------------------
 Gr: 1129.270 kg/s
 Gtn: 8.680 kg/s
-deltaTr: 20.711 C
-tVhR: 295.289 C
+deltaTr: 17.942 C
+tVhR: 298.058 C
 
 ======================
 Average heat characteristics
 ----------------------
-qV: 103.361 MVt/m^3
-Qtvs: 1.096 MVt
-qlSr: 122.165 Vt/cm
-qSr: 0.572 MVt/m^2
+qV: 89.542 MVt/m^3
+Qtvs: 0.949 MVt
+qlSr: 105.831 Vt/cm
+qSr: 0.495 MVt/m^2
 

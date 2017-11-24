@@ -3,6 +3,17 @@ import matplotlib.pyplot as plt
 import utils
 from iapws import IAPWS97
 
+# x1  calc: kz = 1 / (2 / pi * 1 / x * sin(pi * x / 2))
+# x2 calc: 2 * J1(x) * kr = x
+
+x1 = 0.838
+x2 = 1.625
+
+deltaZ = (1.3 - x1 * 1.3) / (2 * x1)
+deltaR = (1.36121 - 0.566 * x2) / (x2)
+kV = 0.0
+
+
 step = 0.01
 z = np.arange(0, 1.3 + step, step)
 q = np.zeros(z.size)
@@ -12,11 +23,13 @@ t_sh_inner = np.zeros(z.size)
 t_fuel35 = np.zeros(z.size)
 t_fuel14 = np.zeros(z.size)
 
-def q_distribution_over_the_height_calc(isPlot):
-    global q
 
-    qMax = data["kV"] * data["qSr"]
-    q = qMax * np.cos(np.pi / 2 * (data["Haz"] - 2 * z) / (data["Haz"] + 2 * data["deltaZ"])) * 1e6
+def q_distribution_over_the_height_calc(isPlot):
+    global q, kV
+
+    kV = data["kR"] * data["kZ"]
+    qMax = kV * data["qSr"]
+    q = qMax * np.cos(np.pi / 2 * (data["Haz"] - 2 * z) / (data["Haz"] + 2 * deltaZ)) * 1e6
 
     if isPlot:
         plt.plot(z, q / 1e6)
@@ -28,10 +41,10 @@ def q_distribution_over_the_height_calc(isPlot):
 def temp_distribution_of_water_calc(isPlot):
     global t_water
 
-    qMax = data["kV"] * data["qSr"] *1e6
+    qMax = kV * data["qSr"] *1e6
 
-    f0 = -1 / np.pi * (data["Haz"] + 2 * data["deltaZ"]) * np.sin(np.pi / 2 * ((data["Haz"]) / (data["Haz"] + 2 * data["deltaZ"])))
-    f = -1 / np.pi * (data["Haz"] + 2 * data["deltaZ"]) * np.sin(np.pi / 2 * ((data["Haz"] - 2 * z) / (data["Haz"] + 2 * data["deltaZ"]))) - f0
+    f0 = -1 / np.pi * (data["Haz"] + 2 * deltaZ) * np.sin(np.pi / 2 * ((data["Haz"]) / (data["Haz"] + 2 * deltaZ)))
+    f = -1 / np.pi * (data["Haz"] + 2 * deltaZ) * np.sin(np.pi / 2 * ((data["Haz"] - 2 * z) / (data["Haz"] + 2 * deltaZ))) - f0
 
     t_water = data["tVhR"] + (data["kG"] * data["Pt"] * qMax) / (data["kQ"] * data["kR"] * Gtvsm * data["Cp"]) * f
 
@@ -120,7 +133,6 @@ def calculate_distributions(isPlot):
 
 
 def main_characteristics_TVSM():
-    out = open("..\\Distributions\\distributionOut.txt", "w")
 
     qVMax = data["qV"] * data["kR"]
     qlAvgMax = data["qlAvg"] * data["kR"]
@@ -150,10 +162,11 @@ def main_characteristics_TVSM():
         "tOutShMax: %.3f C\ntInShMax: %.3f C\n" +\
         "tFuel35Max:  %.3f C\ntFuel14Max:  %.3f C\nLBoil: %.3f m\n")
         % (qVMax, qlAvgMax, Qtvsm, qMax, qAvg, Gtvsm, Wtvsm, roW, t_sh_outer_max, t_sh_inner_max, t_fuel35_max, t_fuel14_max, LBoil))
-    out.close()
 
 data = {}
 utils.fill_dict_from_file(data, "..\\Distributions\\distributionsInput.txt")
+
+out = open("..\\Distributions\\distributionOut.txt", "w")
 
 #Constants calculation
 Gtvsm = data["Gtn"] * data["kR"]
@@ -165,3 +178,9 @@ q_distribution_over_the_height_calc(False)
 if __name__ == "__main__":
     calculate_distributions(False)
     main_characteristics_TVSM()
+
+out.write("deltaZ: %.3f m\n" % deltaZ)
+out.write("deltaR: %.3f m\n" % deltaR)
+out.write("kV: %.3f\n" % kV)
+
+out.close()
