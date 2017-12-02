@@ -3,7 +3,7 @@ kG: 0.93
 Wsr: 3.2 m/s
 Stn: 0.003831 m^2
 Ntvs: 121
-Qr: 117210000 Vt
+Qr: 132800000 Vt 
 Cp: 5785 J/(kg*K)
 tVihR: 316 C
 

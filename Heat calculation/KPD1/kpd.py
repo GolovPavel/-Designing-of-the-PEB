@@ -26,7 +26,7 @@ def kpd_calc():
     print("eta_tinf: %.3f" % eta_tinf)
     eta_tn = eta_t0 + n / (n + 1) * (eta_tinf - eta_t0)
     print("eta_tn: %.3f" % eta_tn)
-    eta_0i = 0.85
+    eta_0i = 0.75
     eta_m = 0.97
     eta_g = 0.98
     eta_t = 0.98
