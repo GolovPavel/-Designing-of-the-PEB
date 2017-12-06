@@ -34,9 +34,9 @@ Emergency protection bar: B4C
 NB10: 1.039e-01
 NC: 2.886e-02
 =============================
-Air: NO2
-NN: 1.892e-02
-NO: 3.784e-02
+Air: N2O2
+NN: 1.438e-02
+NO: 4.541e-03
 =============================
 Shell of Tvel: Zr 99% + Nb 1%
 NZr: 4.287e-02

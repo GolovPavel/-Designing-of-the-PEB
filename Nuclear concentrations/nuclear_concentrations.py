@@ -38,6 +38,7 @@ def calc_fuel_nc():
 # H2O - moderator
 def calc_h2o_nc():
     N0H2O = data['roH2O'] * NA / data['MH2O'] * 1e-24
+    print("H2O: %.3e" % N0H2O)
     NH = 2 * N0H2O
     NOmod = N0H2O
 
@@ -49,6 +50,7 @@ def calc_h2o_nc():
 # B4C - absorber
 def calc_pel_nc():
     NB4C = data['roB4C'] * NA / data['MB4C'] * 1e-24
+    print("B4C: %.3e" % NB4C)
     NB = 4 * NB4C
     NB10 = NB * data['%richB10'] / 100
     NC = NB4C
@@ -64,6 +66,7 @@ def calc_pel_nc():
 # Gd2O3 - burnout absorber
 def calc_svp_nc():
     NGd2O3 = data['roGd2O3'] * NA / data['MGd2O3'] * 1e-24
+    print(print("Gd2O3: %.3e" % NGd2O3))
 
     NGd = NGd2O3 * 2
     NGd55 = NGd * data['%richGd155'] / 100
@@ -88,10 +91,10 @@ def calc_protection_bar_nc():
 
 #NO2
 def calc_air_nc():
-    NNO2 = data['roNO2'] * NA / data['MNO2'] * 1e-24
-    NO = 2 * NNO2
-    NN = NNO2
-    out.write("Air: NO2\n")
+    NN2O2 = data['roNO2'] * NA / data['MNO2'] * 1e-24
+    NO = data["%O"] / 100 * NN2O2
+    NN = data["%N"] / 100 * NN2O2
+    out.write("Air: N2O2\n")
     out.write("NN: %.3e\nNO: %.3e\n" % (NN, NO))
     out.write("=============================\n")
 
