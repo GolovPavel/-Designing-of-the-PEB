@@ -1,16 +1,16 @@
-qVMax: 126.672 MVt/m^3
-qlAvgMax: 149.644 Vt/cm
-Qtvsm: 1.343 MVt
-qMax: 0.939 MVt/m^2
-qAvg: 0.611 MVt/m^2
-Gtvsm: 10.833 kg/s
-Wtvsm: 3.994 kg/s
-roWtvsm: 2827.469 kg/(m^2*s)
-tOutShMax: 331.301 C
-tInShMax: 356.930 C
-tFuel35Max:  402.304 C
-tFuel14Max:  470.586 C
-LBoil: 0.320 m
-deltaZ: 0.020 m
-deltaR: 0.473 m
-kV: 1.896
+qVMax: 162.400 MVt/m^3
+qlAvgMax: 191.851 Vt/cm
+Qtvsm: 1.722 MVt
+qMax: 1.030 MVt/m^2
+qAvg: 0.787 MVt/m^2
+Gtvsm: 13.888 kg/s
+Wtvsm: 5.120 kg/s
+roWtvsm: 3624.960 kg/(m^2*s)
+tOutShMax: 326.736 C
+tInShMax: 354.959 C
+tFuel35Max:  404.807 C
+tFuel14Max:  479.746 C
+LBoil: 0.000 m
+deltaZ: 0.183 m
+deltaR: 0.166 m
+kV: 2.080

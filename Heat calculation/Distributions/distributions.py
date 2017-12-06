@@ -6,8 +6,8 @@ from iapws import IAPWS97
 # x1  calc: kz = 1 / (2 / pi * 1 / x * sin(pi * x / 2))
 # x2 calc: 2 * J1(x) * kr = x
 
-x1 = 0.97
-x2 = 1.31
+x1 = 0.78
+x2 = 1.86
 
 deltaZ = (1.3 - x1 * 1.3) / (2 * x1)
 deltaR = (1.36121 - 0.566 * x2) / (x2)
@@ -154,7 +154,10 @@ def main_characteristics_TVSM():
         if t_sh_outer[i] >= ts[0]:
             upper_ts.append(i)
             break
-    LBoil = z[upper_ts[1]] - z[upper_ts[0]]
+    if len(upper_ts) != 0:
+        LBoil = z[upper_ts[1]] - z[upper_ts[0]]
+    else:
+        LBoil = 0
 
 
     out.write(("qVMax: %.3f MVt/m^3\nqlAvgMax: %.3f Vt/cm\nQtvsm: %.3f MVt\nqMax: %.3f MVt/m^2\nqAvg: %.3f MVt/m^2\n" +\
