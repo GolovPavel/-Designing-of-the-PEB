@@ -107,11 +107,13 @@ def calc_x_and_q_and_plot():
 
     #x calculation
     param = {}
+    resultsDistr = {}
     utils.fill_dict_from_file(param, "../Distributions/distributionsInput.txt")
-    qMax = param["kV"] * param["qSr"] * 1e6
+    utils.fill_dict_from_file(resultsDistr, "../Distributions/distributionOut.txt")
+    qMax = resultsDistr["kV"] * param["qSr"] * 1e6
     z = np.append(np.arange(0, 1.2 + 0.2, 0.2), 1.3)
-    f0 = -1 * (qMax * (param["Haz"] + 2 * param["deltaZ"])) / np.pi  * np.sin(np.pi / 2 * ((param["Haz"]) / (param["Haz"] + 2 * param["deltaZ"])))
-    f = -1 * (qMax * (param["Haz"] + 2 * param["deltaZ"])) / np.pi  * np.sin(np.pi / 2 * ((param["Haz"] - 2 * z) / (param["Haz"] + 2 * param["deltaZ"]))) - f0
+    f0 = -1 * (qMax * (param["Haz"] + 2 * resultsDistr["deltaZ"])) / np.pi  * np.sin(np.pi / 2 * ((param["Haz"]) / (param["Haz"] + 2 * resultsDistr["deltaZ"])))
+    f = -1 * (qMax * (param["Haz"] + 2 * resultsDistr["deltaZ"])) / np.pi  * np.sin(np.pi / 2 * ((param["Haz"] - 2 * z) / (param["Haz"] + 2 * resultsDistr["deltaZ"]))) - f0
     water1 = IAPWS97(T = 294.7 + 273, P = 12.7)
     water2 = IAPWS97(P = 12.7, x = 0.0)
     x_in = (water1.h - water2.h) / 1.1554e+006 * 1e3 + 0.01

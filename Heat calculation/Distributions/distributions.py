@@ -6,8 +6,8 @@ from iapws import IAPWS97
 # x1  calc: kz = 1 / (2 / pi * 1 / x * sin(pi * x / 2))
 # x2 calc: 2 * J1(x) * kr = x
 
-x1 = 0.78
-x2 = 1.86
+x1 = 0.838
+x2 = 1.625
 
 deltaZ = (1.3 - x1 * 1.3) / (2 * x1)
 deltaR = (1.36121 - 0.566 * x2) / (x2)

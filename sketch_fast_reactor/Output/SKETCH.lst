@@ -2,7 +2,7 @@
 !                                   SKETCH-N                                   !
 !  Nodal Neutron Diffusion Code for Solving Steady-State and Kinetics Problems !
 !              Version 1.0 (c) Slava 2000 e-mail: na.vzimin@na-net.ornl.gov    !
-!      Date & Time of Calculation : 12 December 2017   5:22:48 pm              !
+!      Date & Time of Calculation : 12 December 2017  11:51:10 am              !
 !==============================================================================!
  
 !------------------------------------------------------------------------------!
@@ -379,7 +379,7 @@ CNT_RCT_POWR ## REACTOR POWER (MWt)
 !                                   SKETCH-N                                   !
 !  Nodal Neutron Diffusion Code for Solving Steady-State and Kinetics Problems !
 !              Version 1.0 (c) Slava 2000 e-mail: na.vzimin@na-net.ornl.gov    !
-!      Date & Time of Calculation : 12 December 2017   5:22:48 pm              !
+!      Date & Time of Calculation : 12 December 2017  11:51:10 am              !
 !==============================================================================!
                  INITIAL DATA SET
                  STEADY-STATE CALCULATIONS
@@ -1124,7 +1124,7 @@ Sm149 Average Value of Isotope concentration =0.000000E+00 [nuclei/cm^3 x 10^24]
 !                                   SKETCH-N                                   !
 !  Nodal Neutron Diffusion Code for Solving Steady-State and Kinetics Problems !
 !              Version 1.0 (c) Slava 2000 e-mail: na.vzimin@na-net.ornl.gov    !
-!      Date & Time of Calculation : 12 December 2017   5:22:48 pm              !
+!      Date & Time of Calculation : 12 December 2017  11:51:10 am              !
 !==============================================================================!
                  NUMERICAL RESULTS
                  STEADY-STATE CALCULATIONS
@@ -1873,13 +1873,13 @@ Sm149 Average Value of Isotope concentration =0.000000E+00 [nuclei/cm^3 x 10^24]
  Convergence  of k_eff (actual, tolerance) =  0.89407E-06 0.10000E-04
  Convergence  of flux  (actual, tolerance) =  0.88424E-06 0.10000E-05
 !------------------------------------------------------------------------------!
- SKETCH has used  0.1875000    seconds of CPU time
+ SKETCH has used  0.2031250    seconds of CPU time
     This Include: 
        Internal  T/H Module       0.0000000E+00 s   0.0000000E+00 %
        Nodal Coefficient Update:  0.0000000E+00 s   0.0000000E+00 %
-       CMFD Iterations            7.8125000E-02 s    41.66667     %
+       CMFD Iterations            7.8125000E-02 s    38.46154     %
        XS Updates                 0.0000000E+00 s   0.0000000E+00 %
-       Input/Output Module        4.6875000E-02 s    25.00000     %
+       Input/Output Module        4.6875000E-02 s    23.07692     %
  CHECKING SUM  0.2031250     seconds of CPU time
- This include user time, system time =   0.1250000      7.8125000E-02
+ This include user time, system time =   9.3750000E-02  0.1093750    
 !------------------------------------------------------------------------------!
