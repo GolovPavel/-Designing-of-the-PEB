@@ -4,25 +4,17 @@ import utils
 from iapws import IAPWS97
 from scipy.interpolate import interp1d
 
-# x1  calc: kz = 1 / (2 / pi * 1 / x * sin(pi * x / 2))
-# x2 calc: 2 * J1(x) * kr = x
+k = [0.7, 0.9659, 1.4674, 1.7507, 1.7729, 1.5234, 0.9626, 0.6583, 0.4465, 0.2889, 0.1633]
+kr = 1.164
+kv = [kr * i for i in k]
+z = [0, 0.13, 0.26, 0.39, 0.52, 0.65, 0.78, 0.91, 1.04, 1.17, 1.30]
 
-x1 = 0.97
-x2 = 1.31
-
-deltaZ = (1.3 - x1 * 1.3) / (2 * x1)
-deltaR = (1.36121 - 0.566 * x2) / (x2)
-kV = 0.0
-
-
-step = 0.01
-z = np.arange(0, 1.3 + step, step)
-q = np.zeros(z.size)
-t_water = np.zeros(z.size)
-t_sh_outer = np.zeros(z.size)
-t_sh_inner = np.zeros(z.size)
-t_fuel35 = np.zeros(z.size)
-t_fuel14 = np.zeros(z.size)
+q = np.zeros(len(z))
+t_water = np.zeros(len(z))
+t_sh_outer = np.zeros(len(z))
+t_sh_inner = np.zeros(len(z))
+t_fuel35 = np.zeros(len(z))
+t_fuel14 = np.zeros(len(z))
 
 def plot_spline(x, y, xlabel, ylabel):
     f = interp1d(x, y, kind='cubic')
@@ -34,33 +26,25 @@ def plot_spline(x, y, xlabel, ylabel):
     plt.show()
 
 def q_distribution_over_the_height_calc(isPlot):
-    global q, kV
+    global q
 
-    kV = data["kR"] * data["kZ"]
-    z = [0.13, 0.26, 0.39, 0.52, 0.65, 0.78, 0.91, 1.04, 1.17, 1.30]
-    k = [0.3871, 0.6395, 0.8727, 1.0526, 1.1830, 1.2581, 1.3, 1.2409, 1.2302, 0.8459]
-    q = [data["qSr"] * i for i in k]
-
+    q = [data["qSr"] * i for i in kv]
     plot_spline(z, q, r'z, $м$', r'q, $МВт/м^2$')
 
 def temp_distribution_of_water_calc(isPlot):
     global t_water
 
-    qMax = kV * data["qSr"] *1e6
-
-    f0 = -1 / np.pi * (data["Haz"] + 2 * deltaZ) * np.sin(np.pi / 2 * ((data["Haz"]) / (data["Haz"] + 2 * deltaZ)))
-    f = -1 / np.pi * (data["Haz"] + 2 * deltaZ) * np.sin(np.pi / 2 * ((data["Haz"] - 2 * z) / (data["Haz"] + 2 * deltaZ))) - f0
-
-    t_water = data["tVhR"] + (data["kG"] * data["Pt"] * qMax) / (data["kQ"] * data["kR"] * Gtvsm * data["Cp"]) * f
+    for i in range(len(z)):
+        t_water[i] = data["tVhR"] + data["kG"] * data["Pt"] / (data["kQ"] * data["kR"] * data["Gtn"] * data["Cp"]) * np.trapz(q[0: (i + 1)], z[0: (i + 1)]) * 1e6
 
     if isPlot:
         plt.plot(z, t_water, label=r'$t_в$')
-        plt.plot(z, ts, 'r--',  label=r'$t_s$')
+        # plt.plot(z, ts, 'r--',  label=r'$t_s$')
         plt.grid(True)
         plt.xlabel(r'z, $м$', fontsize=14, fontweight='bold')
         plt.ylabel(r't, $^oC$', fontsize=14, fontweight='bold')
         plt.legend()
-        plt.ylim(290, 340)
+        # plt.ylim(290, 340)
         plt.show()
 
 
@@ -131,9 +115,9 @@ def temp_distribution_of_fuel(isPlot):
 
 def calculate_temp_distributions(isPlot):
     temp_distribution_of_water_calc(isPlot)
-    temp_distribution_of_outer_shell(isPlot)
-    temp_distribution_of_inner_shell(isPlot)
-    temp_distribution_of_fuel(isPlot)
+    # temp_distribution_of_outer_shell(isPlot)
+    # temp_distribution_of_inner_shell(isPlot)
+    # temp_distribution_of_fuel(isPlot)
 
 
 def main_characteristics_TVSM():
@@ -168,8 +152,11 @@ def main_characteristics_TVSM():
         % (qVMax, qlAvgMax, Qtvsm, qMax, qAvg, Gtvsm, Wtvsm, roW, t_sh_outer_max, t_sh_inner_max, t_fuel35_max, t_fuel14_max, LBoil))
 
 data = {}
-utils.fill_dict_from_file(data, "..\\Distributions\\distributionsInput.txt")
-#
+utils.fill_dict_from_file(data, "..\\Distributions\\neutron_distr.txt")
+kV = data["kR"] * data["kZ"]
+
+
+
 # out = open("..\\Distributions\\distributionOut.txt", "w")
 
 #Constants calculation
@@ -179,8 +166,8 @@ utils.fill_dict_from_file(data, "..\\Distributions\\distributionsInput.txt")
 # ts = list(map(lambda x: water.T - 273, np.zeros(z.size)))
 
 q_distribution_over_the_height_calc(True)
-# if __name__ == "__main__":
-#     calculate_temp_distributions(False)
+if __name__ == "__main__":
+    calculate_temp_distributions(True)
 #     main_characteristics_TVSM()
 #
 # out.write("deltaZ: %.3f m\n" % deltaZ)

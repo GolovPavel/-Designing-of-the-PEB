@@ -1,4 +1,7 @@
-x = 1.61
+import numpy as np
 
-a = [1, 2, 3]
-print(a + 1 * 3)
+
+x = [1, 2, 3]
+y = [1, 2]
+
+print(x[0:3])
