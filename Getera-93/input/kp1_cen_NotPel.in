@@ -67,14 +67,164 @@ pu39
 pu40
 pu41
 ****
-:corr
- &vvod &end
-:fier
- &vvod &end
 :macro
- &vvod                                                                  
-  ET=10.5E+6,2.15,2.15,0.,
- @NBV=1,1,1,1,1,1,1,1,1,1,1,1,1,1,                                              
+ &vvod
+  et=10.5e+6,2.15,2.15,0.,
+ @nbv=1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+ &end
+                                                                                                                        
+@ 1 step - 1. days!----------
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+@ 1 step - 1. days!----------
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+@ 1 step - 1. days!----------
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+@ 1 step - 1. days!----------
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+@ 1 step - 1. days!----------
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+                                                                                                                        
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+@ 1 step - 50. days!----------
+:burn
+ &vvod qv=101.5,dtim=50.,
  &end
 :stop
  

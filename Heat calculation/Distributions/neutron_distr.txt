@@ -1,7 +1,7 @@
 kG: 0.93
 kQ: 0.98
-kR: 1.42
-kZ: 1.36
+kR: 1.164
+kZ: 1.77
 deltaR: 0.272
 deltaZ: 0.126
 Gtn: 8.68 kg/s
