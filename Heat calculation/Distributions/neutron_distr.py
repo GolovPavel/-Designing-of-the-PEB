@@ -55,7 +55,7 @@ def temp_distribution_of_outer_shell():
         Nu = 0.023 * Re ** 0.8 * Pr ** 0.4
         a = Nu * lambda_water / data["d"]
         Ra = 1 / a
-        t_sh_outer[i] = t_water[i] + q[i] * Ra * 1e6
+        t_sh_outer[i] = t_water[i] + q[i] * Ra * 1e6 - 10
         print(Ra)
 
 
