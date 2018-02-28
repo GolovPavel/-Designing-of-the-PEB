@@ -8,5 +8,5 @@ BNAB:.\get-93\bin\XE35.MLT
 F11:.\get-93\bin\f11
 
 
-INGET:inputKReact\kp1_per_NotPel.in
-OUTGET:outputKReact\kp1_per_NotPel.out
+INGET:inputKReact\kp1_AZ_WithAZ.in
+OUTGET:outputKReact\kp1_AZ_WithAZ.out
