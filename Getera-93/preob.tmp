@@ -89,5 +89,8 @@ pu41
   et=10.5e+6,2.15,2.15,0.,
  
  &end
- 
+:dina
+&vvod
+et=10.5e+6,0.,
+&end
 :stop
