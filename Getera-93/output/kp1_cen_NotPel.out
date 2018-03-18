@@ -73,7 +73,10 @@ pu41
   et=10.5e+6,2.15,2.15,0.,
  @nbv=1,1,1,1,1,1,1,1,1,1,1,1,1,1,
  &end
-                                                                                                                        
+:dina
+&vvod
+et=10.5e+6,0.,
+&end
 @ 1 step - 1. days!----------
 :burn
  &vvod qv=101.5,dtim=1.,
@@ -171,62 +174,10 @@ pu41
 :burn
  &vvod qv=101.5,dtim=50.,
  &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-@ 1 step - 50. days!----------
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
+:dina
+&vvod
+et=10.5e+6,0.,
+&end
 :stop
                                                                                                                         
  ***** end of   file of input data set *******
@@ -484,6 +435,48 @@ nsos=  2,  3,  4,  2,  3,  4,  5,  3,  4,  5,
        i / j -->            1           2
        i        1 0.4488042     0.9738771E-02
        i        2 0.1732457E-03 0.8441794    
+:dina                                                                           
+    -------------------------------------------------------------------------------
+    * n group   * e(i)        * e(i+1)
+          1       0.10500E+08    0.0000    
+    -------------------------------------------------------------------------------
+          fraction of delay neutrons -betaj
+           beta`j
+           one group beta * 10e-4
+  
+          condensated zone : 1
+ nt      1           2           3           4           5           6
+ ne: 1 0.69003      8.1887      5.7461      11.564      3.7472      2.2718    
+ ne: 1 0.21424E-01 0.25425     0.17841     0.35904     0.11634     0.70536E-01
+       32.20788    
+    -------------------------------------------------------------------------------
+    * n group   * e(i)        * e(i+1)
+          1       0.10500E+08    0.0000    
+    -------------------------------------------------------------------------------
+          decay constant -lambdaj
+           one group lambda
+  
+          condensated zone : 1
+ nt      1           2           3           4           5           6
+ ne: 1 0.12500E-01 0.31262E-01 0.12747     0.33113      1.0701      2.5170    
+ 1-group lambda   8.0209926E-02
+    -------------------------------------------------------------------------------
+    * n group   * e(i)        * e(i+1)
+          1       0.10500E+08    0.0000    
+    -------------------------------------------------------------------------------
+          spectrum -xj
+  
+          condensated zone : 1
+ nt      1           2           3           4           5           6
+ ne: 1 0.42361E-04  0.0000      0.0000      0.0000      0.0000      0.0000    
+    -------------------------------------------------------------------------------
+    * n group   * e(i)        * e(i+1)
+          1       0.10500E+08    0.0000    
+    -------------------------------------------------------------------------------
+          production part constant -alfa (id xe pm)
+  
+          condensated zone : 1
+           1  6.4666711E-02  2.1411243E-03  1.3279947E-02
 :burn                                                                           
  *** average burn up =  0.60958E-01 (mbt*day)/(kg hm)
     > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
@@ -1789,760 +1782,46 @@ nsos=  2,  3,  4,  2,  3,  4,  5,  3,  4,  5,
  lokal kner      in cell ,ru=           4=  0.0000000E+00  0.5915908    
  lokal kner      in cell ,ru=           5=  0.0000000E+00  7.5720377E-02
  lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1848142E-02
-:burn                                                                           
- *** average burn up =   63.170     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.65246 Balance= 1.00481 NU= 2.99 FI-Sum=  7.71E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.62529 Balance= 1.00499 NU= 2.99 FI-Sum=  7.81E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.995080     ***k(itt)= 1.02129     ***k(integ)=0.995080    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9742448      0.9732776    
- lokal kner      in cell ,ru=           2=   1.072973       1.075714    
- lokal kner      in cell ,ru=           3=  0.0000000E+00   1.060381    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.5778065    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.5993888E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1845261E-02
-:burn                                                                           
- *** average burn up =   66.435     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.64199 Balance= 1.00489 NU= 2.99 FI-Sum=  7.75E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.61326 Balance= 1.00507 NU= 2.99 FI-Sum=  7.86E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.990992     ***k(itt)= 1.01712     ***k(integ)=0.990992    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9741975      0.9731585    
- lokal kner      in cell ,ru=           2=   1.073107       1.076051    
- lokal kner      in cell ,ru=           3=  0.0000000E+00   1.047225    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.5636734    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.6280393E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1842325E-02
-:burn                                                                           
- *** average burn up =   69.712     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.63151 Balance= 1.00497 NU= 2.99 FI-Sum=  7.79E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.60120 Balance= 1.00516 NU= 2.99 FI-Sum=  7.90E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.987013     ***k(itt)= 1.01307     ***k(integ)=0.987013    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9741307      0.9730256    
- lokal kner      in cell ,ru=           2=   1.073296       1.076428    
- lokal kner      in cell ,ru=           3=  0.0000000E+00   1.034018    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.5491517    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.6580979E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1839239E-02
-:burn                                                                           
- *** average burn up =   73.002     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.62103 Balance= 1.00505 NU= 2.99 FI-Sum=  7.82E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.58910 Balance= 1.00524 NU= 2.99 FI-Sum=  7.94E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.983149     ***k(itt)= 1.00912     ***k(integ)=0.983149    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9740397      0.9728747    
- lokal kner      in cell ,ru=           2=   1.073554       1.076855    
- lokal kner      in cell ,ru=           3=  0.0000000E+00   1.020780    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.5341679    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.6897837E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1835918E-02
-:burn                                                                           
- *** average burn up =   76.304     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.61054 Balance= 1.00512 NU= 2.99 FI-Sum=  7.86E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.57697 Balance= 1.00533 NU= 2.99 FI-Sum=  7.99E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.979402     ***k(itt)= 1.00530     ***k(integ)=0.979402    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9739201      0.9727026    
- lokal kner      in cell ,ru=           2=   1.073893       1.077343    
- lokal kner      in cell ,ru=           3=  0.0000000E+00   1.007495    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.5186725    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.7232361E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1832248E-02
-:burn                                                                           
- *** average burn up =   79.617     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.60005 Balance= 1.00520 NU= 2.99 FI-Sum=  7.90E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.56480 Balance= 1.00541 NU= 2.99 FI-Sum=  8.03E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.975782     ***k(itt)= 1.00161     ***k(integ)=0.975782    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9737679      0.9725084    
- lokal kner      in cell ,ru=           2=   1.074324       1.077893    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.9941498    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.5026017    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.7587128E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1828143E-02
-:burn                                                                           
- *** average burn up =   82.943     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.58956 Balance= 1.00527 NU= 2.99 FI-Sum=  7.93E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.55260 Balance= 1.00550 NU= 2.99 FI-Sum=  8.07E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.972296     ***k(itt)=0.998059     ***k(integ)=0.972296    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9735757      0.9722859    
- lokal kner      in cell ,ru=           2=   1.074869       1.078523    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.9807563    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.4858301    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.7965483E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1823453E-02
-:burn                                                                           
- *** average burn up =   86.282     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.57906 Balance= 1.00535 NU= 2.99 FI-Sum=  7.97E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.54035 Balance= 1.00558 NU= 2.99 FI-Sum=  8.12E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.968957     ***k(itt)=0.994657     ***k(integ)=0.968957    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9733355      0.9720305    
- lokal kner      in cell ,ru=           2=   1.075549       1.079247    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.9673075    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.4682559    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.8370884E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1817911E-02
-:burn                                                                           
- *** average burn up =   89.632     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.56856 Balance= 1.00542 NU= 2.99 FI-Sum=  8.01E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.52806 Balance= 1.00566 NU= 2.99 FI-Sum=  8.16E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.965782     ***k(itt)=0.991422     ***k(integ)=0.965782    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9730382      0.9717348    
- lokal kner      in cell ,ru=           2=   1.076392       1.080085    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.9538010    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.4497103    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.8808561E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1811474E-02
-:burn                                                                           
- *** average burn up =   92.995     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.55806 Balance= 1.00550 NU= 2.99 FI-Sum=  8.04E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.51572 Balance= 1.00574 NU= 2.99 FI-Sum=  8.20E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.962787     ***k(itt)=0.988372     ***k(integ)=0.962787    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9726715      0.9713912    
- lokal kner      in cell ,ru=           2=   1.077431       1.081059    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.9402172    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.4300159    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.9285026E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1803675E-02
-:burn                                                                           
- *** average burn up =   96.370     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.54755 Balance= 1.00557 NU= 2.99 FI-Sum=  8.08E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.50331 Balance= 1.00582 NU= 2.99 FI-Sum=  8.25E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.959996     ***k(itt)=0.985530     ***k(integ)=0.959996    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9722284      0.9709945    
- lokal kner      in cell ,ru=           2=   1.078686       1.082182    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.9265721    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.4089732    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  7.9806060E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1794517E-02
-:burn                                                                           
- *** average burn up =   99.758     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.53705 Balance= 1.00564 NU= 2.99 FI-Sum=  8.12E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.49084 Balance= 1.00591 NU= 2.99 FI-Sum=  8.29E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.957428     ***k(itt)=0.982919     ***k(integ)=0.957428    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9716982      0.9705374    
- lokal kner      in cell ,ru=           2=   1.080189       1.083477    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.9128579    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.3863470    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  8.0379732E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1783678E-02
-:burn                                                                           
- *** average burn up =   103.16     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.52655 Balance= 1.00572 NU= 2.99 FI-Sum=  8.16E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.47830 Balance= 1.00599 NU= 2.99 FI-Sum=  8.33E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.955099     ***k(itt)=0.980551     ***k(integ)=0.955099    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9710386      0.9699899    
- lokal kner      in cell ,ru=           2=   1.082057       1.085029    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.8990090    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.3620925    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  8.1038438E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1769391E-02
-:burn                                                                           
- *** average burn up =   106.57     (mbt*day)/(kg hm)
-    > CONSYST Program Ver: 98.01 > started at  0: 0: 0:  
-    { Manturov G., E-mail: abbn@ippe.rssi.ru}
- 
-       -------------------------------
- 
-       CONSYST INPUT DATA READ FROM : cons.dat
-       CONSYST PROTOCOL STORED IN   : RESULT
-       GMF X-SECTION'S FILE         : OUT
-       TEMPORARY FILE               : RAB
-       ABBN BASIC DATA SET FROM     : .\get-93\bin\Bnab90.lib
-       ABBN MULTIC DATA SET FROM    : .\get-93\bin\Bnabmlt.lib
-       ABBN THERMAL DATA SET FROM   : .\get-93\bin\BNABTHM.lib
- 
-    >>  K-inf(MLT)= 1.51605 Balance= 1.00579 NU= 2.99 FI-Sum=  8.19E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >>  K-inf(MLT)= 1.46567 Balance= 1.00607 NU= 2.99 FI-Sum=  8.38E+01
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  500K
-    >   Include Thermal Matrix > H(H2O):BNABTHM.BIN   Temp=  600K
-    > CONSYST finished at  0: 0: 0:  
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- therm. calculation avoided
- *************************************************
-   ***k(inf)=0.953026     ***k(itt)=0.978446     ***k(integ)=0.953026    ***
-   **bakl=  0.0000     **length= 0.10000E+11  ***
-   **matr.  alout*alcorr a(k,i)(k=1,ncel) ***
-     * 0.58820     0.13720     0.11760      0.0000      0.0000     0.15860    
-     * 0.38880     0.33330      0.0000     0.22220     0.55500E-01  0.0000    
-     * 0.66660      0.0000      0.0000      0.0000      0.0000     0.33330    
-     *  0.0000     0.66660      0.0000      0.0000     0.33330      0.0000    
-     *  0.0000     0.14280      0.0000     0.28570     0.57140      0.0000    
-     * 0.22220      0.0000     0.83300E-01  0.0000      0.0000     0.69440    
- lokal kner      in cell ,ru=           1=  0.9702974      0.9693859    
- lokal kner      in cell ,ru=           2=   1.084157       1.086740    
- lokal kner      in cell ,ru=           3=  0.0000000E+00  0.8851179    
- lokal kner      in cell ,ru=           4=  0.0000000E+00  0.3359444    
- lokal kner      in cell ,ru=           5=  0.0000000E+00  8.1757747E-02
- lokal kner      in cell ,ru=           6=  0.0000000E+00  2.1753885E-02
+:dina                                                                           
+    -------------------------------------------------------------------------------
+    * n group   * e(i)        * e(i+1)
+          1       0.10500E+08    0.0000    
+    -------------------------------------------------------------------------------
+          fraction of delay neutrons -betaj
+           beta`j
+           one group beta * 10e-4
+  
+          condensated zone : 1
+ nt      1           2           3           4           5           6
+ ne: 1 0.68503      8.2947      5.8201      11.873      3.8855      2.3656    
+ ne: 1 0.20807E-01 0.25194     0.17678     0.36061     0.11802     0.71852E-01
+       32.92366    
+    -------------------------------------------------------------------------------
+    * n group   * e(i)        * e(i+1)
+          1       0.10500E+08    0.0000    
+    -------------------------------------------------------------------------------
+          decay constant -lambdaj
+           one group lambda
+  
+          condensated zone : 1
+ nt      1           2           3           4           5           6
+ ne: 1 0.12500E-01 0.31264E-01 0.12747     0.33136      1.0707      2.5262    
+ 1-group lambda   8.1058905E-02
+    -------------------------------------------------------------------------------
+    * n group   * e(i)        * e(i+1)
+          1       0.10500E+08    0.0000    
+    -------------------------------------------------------------------------------
+          spectrum -xj
+  
+          condensated zone : 1
+ nt      1           2           3           4           5           6
+ ne: 1 0.46317E-04  0.0000      0.0000      0.0000      0.0000      0.0000    
+    -------------------------------------------------------------------------------
+    * n group   * e(i)        * e(i+1)
+          1       0.10500E+08    0.0000    
+    -------------------------------------------------------------------------------
+          production part constant -alfa (id xe pm)
+  
+          condensated zone : 1
+           1  6.4845592E-02  2.0811425E-03  1.3305265E-02
 :stop                                                                           

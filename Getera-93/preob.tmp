@@ -1,7 +1,7 @@
 :poly
  &vvod
     rcel(1,1)=0.29,0.34,0.48,
-                   ncelsos(1,1)=1,3,4
+                   ncelsos(1,1)=2,3,4
     rcel(1,2)=0.29,0.34,0.48,
                    ncelsos(1,2)=2,3,4
     rcel(1,3)=0.29,0.34,0.48,
@@ -13,13 +13,13 @@
     rcel(1,6)=0.39,0.48,
                    ncelsos(1,6)=3,4,
  
-  t=0.6400e+03, 0.6400e+03, 0.5830e+03, 0.5830e+03, 0.5830e+03,
+  t=0.6590e+03, 0.5970e+03, 0.5830e+03, 0.5830e+03, 0.5830e+03,
  0.5830e+03,
  troiz=
  
-  0.0000000 , 0.0000000 , 0.0000000 , 0.0420196 , 0.0000000 ,
+  0.0000000 , 0.0000000 , 0.0000000 , 4.655e-02 , 0.0000000 ,
  4.655e-02 , 0.0000000 ,
-  0.0000000 , 0.0000000 , 0.0000000 , 0.0210098 , 0.0000000 ,
+  0.0000000 , 0.0000000 , 0.0000000 , 2.327e-02 , 0.0000000 ,
  2.327e-02 , 0.0000000 ,
   0.0000000 , 0.0000000 , 4.287e-02 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
@@ -93,4 +93,82 @@ pu41
 &vvod
 et=10.5e+6,0.,
 &end
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+ 
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:dina
+&vvod
+et=10.5e+6,0.,
+&end
 :stop
+ 
