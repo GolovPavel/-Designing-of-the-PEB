@@ -13,7 +13,7 @@
     rcel(1,6)=0.39,0.48,
                    ncelsos(1,6)=3,4,
  
-  t=0.6590e+03, 0.5970e+03, 0.5830e+03, 0.5830e+03, 0.5830e+03,
+  t=0.6400e+03, 0.6400e+03, 0.5830e+03, 0.5830e+03, 0.5830e+03,
  0.5830e+03,
  troiz=
  
@@ -89,82 +89,10 @@ pu41
   et=10.5e+6,2.15,2.15,0.,
  
  &end
-:dina
-&vvod
-et=10.5e+6,0.,
-&end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
+:macro
+ &vvod
+  et=10.5e+6,0.3e+6,0.3e+6,0.,
  
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
  &end
 :dina
 &vvod
