@@ -133,6 +133,23 @@ ET=10.5E+6,0.,
 :burn
  &vvod qv=101.5,dtim=50.,
  &end
+ 
+@Center of company!!!!!
+:cont
+:micro                                                                  
+ &vvod                                                                  
+  ET=10.5E+6,2.15,2.15,0.,                                              
+ &end  
+:macro
+ &vvod
+  et=10.5e+6,2.15,2.15,0.,
+ @nbv=1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+ &end
+:macro
+ &vvod
+  et=10.5e+6,1e3,1e3,0.,
+ @nbv=1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+ &end
 @ 1 step - 50. days!----------
 :burn
  &vvod qv=101.5,dtim=50.,

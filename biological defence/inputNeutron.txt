@@ -1,8 +1,8 @@
 Wt: 132.8 MVt
-nuF: 2.92
+nuF: 2.89
 S: 6.64 m^2
-kinf: 1.06
-gamma: 0.79
+kinf: 1.042
+gamma: 0.77
 muEn: 100 cm^2/kg
 k: 10
 

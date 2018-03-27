@@ -75,13 +75,6 @@ def temp_distribution_of_outer_shell(isPlot):
         Ra = 1 / a
         t_sh_outer[i] = t_water[i] + q[i] * Ra
 
-        # if (t_sh_outer[i] > ts[0]):
-        #     aBoil = 4.32 * (data["P1c"] ** 0.14 + 1.28 * 10 ** -2 * data["P1c"] ** 2) * q[i] ** 0.7
-        #     RaBoil = 1 / aBoil
-        #     t_surf_boil = ts[0] + q[i] * RaBoil
-        #     print(np.abs(t_sh_outer[i] - t_surf_boil))
-
-
     if isPlot:
         plt.plot(z, t_sh_outer, label=r'$t_{об.н}$')
         plt.plot(z, ts, 'r--',  label=r'$t_s$')

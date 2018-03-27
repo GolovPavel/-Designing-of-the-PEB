@@ -5,8 +5,12 @@ NA = 6.002e23
 
 # UO2+PuO2 - MOX fuel
 def calc_fuel_nc():
-    NUO2 = data["N0UO2"] * 1e-24
+    N0UO2 = data["roUO2"] * NA / data["MUO2"]
+    print("Tvel: %.3e" % (N0UO2 * 1e-24))
+    NUO2 = N0UO2 * data["%Fuel"] / 100 * 1e-24
     NO = 2 * NUO2
+
+    NAl = data["roAl"] * NA / data["MAl"] * (1 - data["%Fuel"] / 100) * 1e-24
 
     N1PuO2 = NUO2 * data["%1PuO2"] / 100
     N2PuO2 = NUO2 * data["%2PuO2"] / 100
@@ -14,9 +18,9 @@ def calc_fuel_nc():
     N1UO2 = NUO2 * (100 - data["%1PuO2"]) / 100
     N2UO2 = NUO2 * (100 - data["%2PuO2"]) / 100
 
-    N1U238 = N1UO2 * 0.93
+    N1U238 = N1UO2 * 0.993
     N1U235 = N1UO2 * 0.007
-    N2U238 = N2UO2 * 0.93
+    N2U238 = N2UO2 * 0.993
     N2U235 = N2UO2 * 0.007
 
     N1Pu239 = N1PuO2 * data["%richPu39"] / 100
@@ -33,6 +37,8 @@ def calc_fuel_nc():
               % (NO, N1U235, N1U238, N1Pu239, N1Pu240, N1Pu241))
     out.write("\nN2U235: %.3e\nN2U238: %.3e\nN2Pu239: %.3e\nN2Pu240: %.3e\nN2Pu241: %.3e\n"
               % (N1U235, N2U238, N2Pu239, N2Pu240, N2Pu241))
+
+    out.write("\nNAl: %.3e\n" % (NAl))
     out.write("=============================\n")
 
 # H2O - moderator
@@ -66,7 +72,7 @@ def calc_pel_nc():
 # Gd2O3 - burnout absorber
 def calc_svp_nc():
     NGd2O3 = data['roGd2O3'] * NA / data['MGd2O3'] * 1e-24
-    print(print("Gd2O3: %.3e" % NGd2O3))
+    print("Gd2O3: %.3e" % NGd2O3)
 
     NGd = NGd2O3 * 2
     NGd55 = NGd * data['%richGd155'] / 100

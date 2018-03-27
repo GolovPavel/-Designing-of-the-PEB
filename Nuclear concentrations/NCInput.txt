@@ -1,9 +1,13 @@
-N0UO2: 0.022e24
-%1PuO2: 30
-%2PuO2: 28
+MUO2: 267
+roUO2: 11
+%Fuel: 75
+%1PuO2: 28
+%2PuO2: 26
 %richPu39: 52
 %richPu40: 24
 %richPu41: 15
+MAl: 27
+roAl: 2.6
 
 roB4C: 2.5
 %richB10: 70
@@ -17,7 +21,7 @@ MCr: 52
 
 %richB10AZ: 90
 
-roGd2O3: 7.618
+roGd2O3: 4
 %richGd155: 14.8
 %richGd157: 15.7
 MGd2O3: 362
