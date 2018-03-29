@@ -11,7 +11,7 @@ x2 = 1.625
 
 deltaZ = (1.3 - x1 * 1.3) / (2 * x1)
 deltaR = (1.36121 - 0.566 * x2) / (x2)
-kV = 0.0
+kV = 0.
 
 
 step = 0.01
@@ -127,8 +127,8 @@ def calculate_distributions(isPlot):
 
 def main_characteristics_TVSM():
 
-    qVMax = data["qV"] * data["kR"]
-    qlAvgMax = data["qlAvg"] * data["kR"]
+    qVMax = data["qV"] * kV
+    qlAvgMax = data["qlAvg"] * data["kZ"]
     Qtvsm = data["Qtvs"] * data["kR"]
     qMax = max(q) * 1e-6
     qAvg = sum(q) / len(q) * 1e-6

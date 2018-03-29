@@ -1,5 +1,5 @@
-qVMax: 144.060 MVt/m^3
-qlAvgMax: 170.272 Vt/cm
+qVMax: 195.922 MVt/m^3
+qlAvgMax: 163.078 Vt/cm
 Qtvsm: 1.528 MVt
 qMax: 1.083 MVt/m^2
 qAvg: 0.793 MVt/m^2
