@@ -1,5 +1,5 @@
 Wt: 132.8 MVt
-nuF: 2.89
+nuF: 2.91
 S: 6.64 m^2
 kinf: 1.042
 gamma: 0.77
