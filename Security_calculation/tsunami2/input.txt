@@ -8,6 +8,7 @@ ro: 11000 kg/m^3
 qV0: 200e6 Vt/m^3
 tW: 379 grad C
 
-alpha/alpha0: 0.01
-tau1: 10 sec
-tau2: 0.1 sec
+tau1: 17 sec
+tau2: 15.43 sec
+
+T: 40 sec - coolant loss period

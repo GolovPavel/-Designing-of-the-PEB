@@ -12,7 +12,7 @@ def tetta_calc(tau):
 
 	res = 0
 
-	for i in range(2):
+	for i in range(1):
 		A = 1 / 2 * (1 / Bi0 - 1 / Bi)
 		B = 1 / (mu[i] ** 2)
 		C = integrate.quad(lambda x: qV(x) / data['qV0'] * np.exp(mu[i] ** 2 * x), 0, F0)[0]
@@ -32,12 +32,16 @@ def t_calc(tau):
 
 def qV(tau):
 	qV = data['qV0'] * (0.99 * (np.exp(-tau / data['tau1'])) ** 2 + (
-				0.1 * ((tau + data['tau2']) / data['tau2']) ** (-0.2)) ** 2) ** 0.5
+			0.1 * ((tau + data['tau2']) / data['tau2']) ** (-0.2)) ** 2) ** 0.5
 	return qV
 
 
 def j_fun(x, Bi):
 	return j0(x) / j1(x) - x / Bi
+
+
+def alpha_fun(tau, T):
+	return alpha0 * np.exp(-tau / T)
 
 
 def get_mu(Bi):
@@ -68,40 +72,46 @@ data = {}
 utils.fill_dict_from_file(data, "input.txt")
 
 if __name__ == "__main__":
-	alpha = data['alpha0'] * data['alpha/alpha0']
-
-	k0 = 1 / (data['delta_sh'] / data['lambda_sh'] + 1 / data['alpha0'])
-	k = 1 / (data['delta_sh'] / data['lambda_sh'] + 1 / alpha)
-
-	Bi0 = k0 * data['r1'] / data['lambdaT']
-	Bi = k * data['r1'] / data['lambdaT']
-
-	print("Calculation for alpha = {} alpha0".format(alpha / data["alpha0"]))
-
-	mu = get_mu(Bi)
-	print('Bi = {}.\nMu: {}\n'.format(Bi, mu))
-
-	at = data['lambdaT'] / (data['Cp'] * data['ro'])
+	alpha0 = data['alpha0']
+	T = data['T']
 
 	tau = []
 	t_fuel = []
 
-	for i in range(1, 301):
-		tau_new = i * 0.1
+	tau_new = 0
+
+	while True:
+		tau_new += 1
+
+		alpha = alpha_fun(tau_new, T)
+
+		k0 = 1 / (data['delta_sh'] / data['lambda_sh'] + 1 / alpha0)
+		k = 1 / (data['delta_sh'] / data['lambda_sh'] + 1 / alpha)
+
+		Bi0 = k0 * data['r1'] / data['lambdaT']
+		Bi = k * data['r1'] / data['lambdaT']
+
+		mu = get_mu(Bi)
+		print('tau = {}\nBi = {}.\nMu: {}\n'.format(tau_new, Bi, mu))
+
+		at = data['lambdaT'] / (data['Cp'] * data['ro'])
+
 		t_fuel_new = t_calc(tau_new)
 
 		t_fuel.append(t_fuel_new)
 		tau.append(tau_new)
 
-		print('t: {:.2f} C   tau: {} sec'.format(t_fuel_new, tau_new))
+		if t_fuel_new > 600:
+			break
+
+	print(tau)
+	print(t_fuel)
 
 	plt.plot(tau, t_fuel)
 	plt.xlabel('Время, сек')
 	plt.ylabel('Температура топлива, $^\circ$C')
-	plt.title(r'$\alpha/\alpha_0={}; \tau_1={} сек; \tau_2={} сек$'.format(
-		data['alpha/alpha0'],
-		data['tau1'],
-		data['tau2'],
+	plt.title('Период уменьшения коэффицента теплоотдачи T={} сек'.format(
+		data['T'],
 	))
 	plt.grid(True)
 	plt.show()
