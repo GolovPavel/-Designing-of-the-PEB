@@ -4,11 +4,17 @@ lambdaT: 35 Vt/(m*K)
 alpha0: 37800 Vt/(m^2*k)
 r1: 3.4e-3 m
 Cp: 280 J/(kg*K)
-ro: 11000 kg/m^3
-qV0: 200e6 Vt/m^3
-tW: 379 grad C
+ro: 10000 kg/m^3
+qV0: 196e6 Vt/m^3
+tW: 379 C
 
-tau1: 17 sec
+tW_start: 305 C
+tW_boil: 329 C
+V_w: 5.707e-5 m^3
+V_fuel: 3.424e-5 m^3
+V_cell: 1.038e-4 m^3
+
+tau1: 17.9 sec
 tau2: 15.43 sec
 
-T: 40 sec - coolant loss period
+T: 5.25 sec - coolant loss period
