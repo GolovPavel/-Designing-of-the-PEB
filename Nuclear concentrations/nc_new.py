@@ -1,44 +1,79 @@
 import utils
 import math
 
-NA = 6.002e23
+NA = 6.02e23
 
 # UO2+PuO2 - MOX fuel
 def calc_fuel_nc():
-    N0UO2 = data["roUO2"] * NA / data["MUO2"]
-    NUO2 = N0UO2 * data["%Fuel"] / 100 * 1e-24
-    NO = 2 * NUO2
+    # N0UO2 = data["roUO2"] * NA / data["MUO2"]
+    # NUO2 = N0UO2 * data["%Fuel"] / 100 * 1e-24
+    # NO = 2 * NUO2
+    #
+    # NAl = data["roAl"] * NA / data["MAl"] * (1 - data["%Fuel"] / 100) * 1e-24
+    #
+    # N1PuO2 = NUO2 * data["%1PuO2"] / 100
+    # N2PuO2 = NUO2 * data["%2PuO2"] / 100
+    #
+    # N1UO2 = NUO2 * (100 - data["%1PuO2"]) / 100
+    # N2UO2 = NUO2 * (100 - data["%2PuO2"]) / 100
+    #
+    # N1U238 = N1UO2 * 0.993
+    # N1U235 = N1UO2 * 0.007
+    # N2U238 = N2UO2 * 0.993
+    # N2U235 = N2UO2 * 0.007
+    #
+    # N1Pu239 = N1PuO2 * data["%richPu39"] / 100
+    # N1Pu240 = N1PuO2 * data["%richPu40"] / 100
+    # N1Pu241 = N1PuO2 * data["%richPu41"] / 100
+    #
+    # N2Pu239 = N2PuO2 * data["%richPu39"] / 100
+    # N2Pu240 = N2PuO2 * data["%richPu40"] / 100
+    # N2Pu241 = N2PuO2 * data["%richPu41"] / 100
 
-    NAl = data["roAl"] * NA / data["MAl"] * (1 - data["%Fuel"] / 100) * 1e-24
 
-    N1PuO2 = NUO2 * data["%1PuO2"] / 100
-    N2PuO2 = NUO2 * data["%2PuO2"] / 100
+    richAl = (100 - data['%Fuel']) * 1e-2
+    rich1PuO2 = data['%richPu1'] * 1e-2
+    rich1UO2 = (data['%Fuel'] - data['%richPu1']) * 1e-2
+    rich2PuO2 = data['%richPu2'] * 1e-2
+    rich2UO2 = (data['%Fuel'] - data['%richPu2']) * 1e-2
 
-    N1UO2 = NUO2 * (100 - data["%1PuO2"]) / 100
-    N2UO2 = NUO2 * (100 - data["%2PuO2"]) / 100
+    N1PuO2 = rich1PuO2 * data['roPuO2'] * NA / data['MPuO2'] * 1e-24
+    N1Opu = N1PuO2 * 2
+    N1Pu239 = N1PuO2 * data['%richPu39'] * 1e-2
+    N1Pu240 = N1PuO2 * data['%richPu40'] * 1e-2
+    N1Pu241 = N1PuO2 * data['%richPu41'] * 1e-2
 
+    N1UO2 = rich1UO2 * data['roUO2'] * NA / data['MUO2'] * 1e-24
+    N1Ou = N1UO2 * 2
     N1U238 = N1UO2 * 0.993
     N1U235 = N1UO2 * 0.007
+
+    N1O = N1Opu + N1Ou
+
+    N2PuO2 = rich2PuO2 * data['roPuO2'] * NA / data['MPuO2'] * 1e-24
+    N2Opu = N2PuO2 * 2
+    N2Pu239 = N2PuO2 * data['%richPu39'] * 1e-2
+    N2Pu240 = N2PuO2 * data['%richPu40'] * 1e-2
+    N2Pu241 = N2PuO2 * data['%richPu41'] * 1e-2
+
+    N2UO2 = rich2UO2 * data['roUO2'] * NA / data['MUO2'] * 1e-24
+    N2Ou = N2UO2 * 2
     N2U238 = N2UO2 * 0.993
     N2U235 = N2UO2 * 0.007
 
-    N1Pu239 = N1PuO2 * data["%richPu39"] / 100
-    N1Pu240 = N1PuO2 * data["%richPu40"] / 100
-    N1Pu241 = N1PuO2 * data["%richPu41"] / 100
+    N2O = N2Opu + N2Ou
 
-    N2Pu239 = N2PuO2 * data["%richPu39"] / 100
-    N2Pu240 = N2PuO2 * data["%richPu40"] / 100
-    N2Pu241 = N2PuO2 * data["%richPu41"] / 100
+    NAl = richAl * data['roAl'] * NA / data['MAl'] * 1e-24
 
-    print('% Pu239_1: {}'.format(N1Pu239 / N0UO2 * 1e24))
-    print('% Pu239_2: {}'.format(N2Pu239 / N0UO2 * 1e24))
+
+
 
     out.write("=============================\n")
     out.write("Fuel: UO2 + PuO2")
-    out.write("\nNOTop: %.3e\n\nN1U235: %.3e\nN1U238: %.3e\nN1Pu239: %.3e\nN1Pu240: %.3e\nN1Pu241: %.3e\n"
-              % (NO, N1U235, N1U238, N1Pu239, N1Pu240, N1Pu241))
-    out.write("\nN2U235: %.3e\nN2U238: %.3e\nN2Pu239: %.3e\nN2Pu240: %.3e\nN2Pu241: %.3e\n"
-              % (N1U235, N2U238, N2Pu239, N2Pu240, N2Pu241))
+    out.write("\nN1OTop: %.3e\n\nN1U235: %.3e\nN1U238: %.3e\nN1Pu239: %.3e\nN1Pu240: %.3e\nN1Pu241: %.3e\n"
+              % (N1O, N1U235, N1U238, N1Pu239, N1Pu240, N1Pu241))
+    out.write("\nN2OTop: %.3e\n\nN2U235: %.3e\nN2U238: %.3e\nN2Pu239: %.3e\nN2Pu240: %.3e\nN2Pu241: %.3e\n"
+              % (N2O, N2U235, N2U238, N2Pu239, N2Pu240, N2Pu241))
 
     out.write("\nNAl: %.3e\n" % (NAl))
     out.write("=============================\n")
@@ -116,9 +151,9 @@ def calc_tvel_shell_nc():
 
 
 data = {}
-utils.fill_dict_from_file(data, 'NCInput.txt')
+utils.fill_dict_from_file(data, 'NCInput_new.txt')
 
-out = open('NCOut.txt', 'w')
+out = open('NCOut_new.txt', 'w')
 
 calc_fuel_nc()
 calc_h2o_nc()

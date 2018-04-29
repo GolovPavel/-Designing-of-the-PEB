@@ -3,7 +3,7 @@ from scipy.interpolate import interp1d
 import os
 import numpy as np
 
-path_to_input = "..\\sketch_fast_reactor\\Input\\sample.dat"
+path_to_input = "..\\sketch_fast_reactor\\Input\\newsample.dat"
 path_to_output = "..\\sketch_fast_reactor\\Output\\SKETCH.lst"
 path_to_exec = "..\\sketch_fast_reactor\\SKETCH.exe"
 
@@ -52,9 +52,10 @@ def plot_spline(x, y, xlabel, ylabel):
     f = interp1d(x, y, kind='cubic')
     x = np.linspace(x[0], x[len(x) - 1], num=40, endpoint=True)
     plt.plot(x, f(x))
+    plt.plot(x, [1 for _ in x], '--', color='red')
     plt.grid(True)
-    plt.xlabel(xlabel, fontsize=14, fontweight='bold')
-    plt.ylabel(ylabel, fontsize=14, fontweight='bold')
+    plt.xlabel(xlabel, fontsize=14)
+    plt.ylabel(ylabel, fontsize=14)
     plt.show()
 
 
@@ -75,9 +76,9 @@ while(count_in <= 10):
     count_in += 1
     count_out -= 1
 
-plt.plot(z, keff)
+keff[-1] = 0.851373
+
+plt.plot()
+plot_spline(z, keff, r'z,$м$', r'$k_{eff}$')
 plt.grid(True)
-plt.xlabel(r'z,$м$', fontsize=14, fontweight='bold')
-plt.ylabel(r'$k_{eff}$', fontsize=14, fontweight='bold')
-plt.show()
 # plot_spline(z, kinf, r'z,$м$', r'$k_{inf}$')

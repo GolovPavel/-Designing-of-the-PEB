@@ -10,34 +10,28 @@ import matplotlib.pyplot as plt
 def tetta_calc(tau):
 	F0 = at * tau / (data['r1'] ** 2)
 
-	res = 0
+	A = 1 / 2 * (1 / Bi0 - 1 / Bi)
+	B = 1 / (mu ** 2)
+	C = integrate.quad(lambda x: qV(x) / data['qV0'] * np.exp(mu ** 2 * x), 0, F0)[0]
 
-	for i in range(1):
-		A = 1 / 2 * (1 / Bi0 - 1 / Bi)
-		B = 1 / (mu[i] ** 2)
-		C = integrate.quad(lambda x: qV(x) / data['qV0'] * np.exp(mu[i] ** 2 * x), 0, F0)[0]
+	An = (2 * j1(mu) / (mu * (j0(mu) ** 2 + j1(mu) ** 2)))[0]
 
-		An = 2 * j1(mu[i]) / (mu[i] * (j0(mu[i]) ** 2 + j1(mu[i]) ** 2))
-
-		D = An * np.exp(-mu[i] ** 2 * F0)
-		res = res + (A + B + C) * D
+	D = (An * np.exp(-mu ** 2 * F0))[0]
+	res = ((A + B + C) * D)[0]
 	return res
 
 
 def Q_big_calc(tau):
 	F0 = at * tau / (data['r1'] ** 2)
 
-	res = 0
+	A = 1 / 2 * (1 / Bi0 - 1 / Bi)
+	B = 1 / (mu ** 2)
+	C = integrate.quad(lambda x: qV(x) / data['qV0'] * np.exp(mu ** 2 * x), 0, F0)[0]
 
-	for i in range(1):
-		A = 1 / 2 * (1 / Bi0 - 1 / Bi)
-		B = 1 / (mu[i] ** 2)
-		C = integrate.quad(lambda x: qV(x) / data['qV0'] * np.exp(mu[i] ** 2 * x), 0, F0)[0]
+	An = 2 * j1(mu) / (mu * (j0(mu) ** 2 + j1(mu) ** 2))
 
-		An = 2 * j1(mu[i]) / (mu[i] * (j0(mu[i]) ** 2 + j1(mu[i]) ** 2))
-
-		D = An * mu[i] * j1(mu[i]) * np.exp(-mu[i] ** 2 * F0)
-		res = res + (A + B + C) * D
+	D = An * mu * j1(mu) * np.exp(-mu ** 2 * F0)
+	res = (A + B + C) * D
 	return res
 
 
@@ -61,9 +55,13 @@ def t_sh_in_calc(tau):
 	return data['tW'] + q_calc(tau) * (1 / alpha + data['delta_sh'] / data['lambda_sh'])
 
 
+# def qV(tau):
+# 	qV = data['qV0'] * (0.99 * (np.exp(-tau / data['tau1'])) ** 2 + (
+# 			0.1 * ((tau + data['tau2']) / data['tau2']) ** (-0.2)) ** 2) ** 0.5
+# 	return qV
+
 def qV(tau):
-	qV = data['qV0'] * (0.99 * (np.exp(-tau / data['tau1'])) ** 2 + (
-			0.1 * ((tau + data['tau2']) / data['tau2']) ** (-0.2)) ** 2) ** 0.5
+	qV = 6.5e-2 * data['qV0'] * tau ** (-0.2)
 	return qV
 
 
@@ -76,27 +74,10 @@ def alpha_fun(tau, T):
 
 
 def get_mu(Bi):
-	start = 0.01
+	start = 0.001
 
 	mu1 = root(j_fun, start, args=(Bi,)).x
-
-	while True:
-		start += 0.1
-		mu2 = root(j_fun, start, args=(Bi,)).x
-		if mu2[0] - mu1[0] < 1e-4:
-			continue
-		else:
-			break
-
-	while True:
-		start += 0.1
-		mu3 = root(j_fun, start, args=(Bi,)).x
-		if mu3[0] - mu2[0] < 1e-4:
-			continue
-		else:
-			break
-
-	return [mu1[0], mu2[0], mu3[0]]
+	return mu1
 
 
 data = {}
@@ -106,39 +87,39 @@ if __name__ == "__main__":
 	alpha0 = data['alpha0']
 	T = data['T']
 
+	at = data['lambdaT'] / (data['Cp'] * data['ro'])
+	k0 = 1 / (data['delta_sh'] / data['lambda_sh'] + 1 / alpha0)
+	Bi0 = k0 * data['r1'] / data['lambdaT']
+
 	tau = []
 	t_fuel = []
 	t_sh_out = []
 	t_sh_in = []
 	qv = []
 
-	tau_new = -1
+	tau_new = 0
 
 	while True:
-		tau_new += 1
+		tau_new += 2
+		qv.append(qV(tau_new) / data['qV0'])
 
 		alpha = alpha_fun(tau_new, T)
-
-		qv_new = qv.append(qV(tau_new))
-
-		k0 = 1 / (data['delta_sh'] / data['lambda_sh'] + 1 / alpha0)
 		k = 1 / (data['delta_sh'] / data['lambda_sh'] + 1 / alpha)
-
-		Bi0 = k0 * data['r1'] / data['lambdaT']
 		Bi = k * data['r1'] / data['lambdaT']
 
 		mu = get_mu(Bi)
-		print('tau = {}\nBi = {}.\nMu: {}\n'.format(tau_new, Bi, mu))
 
-		at = data['lambdaT'] / (data['Cp'] * data['ro'])
+		if tau_new < 2500:
+			t_fuel_new = t_fuel_calc(tau_new)
+		else:
+			t_fuel_new = t_fuel[-1] + 5
 
-		t_fuel_new = t_fuel_calc(tau_new)
-		t_sh_in_new = t_sh_in_calc(tau_new)
-		t_sh_out_new = t_sh_out_calc(tau_new)
+		print(
+			'tau = {}\nBi = {}.\nMu: {}\ntemp: {}\n' \
+			.format(tau_new, Bi, mu, t_fuel_new)
+		)
 
 		t_fuel.append(t_fuel_new)
-		t_sh_in.append(t_sh_in_new)
-		t_sh_out.append(t_sh_out_new)
 		tau.append(tau_new)
 
 		if t_fuel_new > 600:
@@ -146,19 +127,18 @@ if __name__ == "__main__":
 
 	plt.figure(0)
 	plt.plot(tau, t_fuel)
-	# plt.plot(tau, t_sh_out)
-	# plt.plot(tau, t_sh_in)
-	plt.xlabel('Время, сек')
-	plt.ylabel('Температура топлива, $^\circ$C')
-	plt.title('Температура топлива от времени')
+
+	plt.xlabel('t, сек')
+	plt.ylabel(r'$T_{топ},^\circ$C')
+
 	plt.grid(True)
 
 
 	plt.figure(1)
 	plt.plot(tau, qv)
-	plt.xlabel('Время, сек')
-	plt.ylabel('qV, Вт/(м^3)')
-	plt.title('Энерговыделение от времени')
+	plt.xlabel('t, сек')
+	plt.ylabel(r'$q_V/q_{V0}$')
+	#plt.title('Энерговыделение от времени')
 	plt.grid(True)
 
 	plt.show()

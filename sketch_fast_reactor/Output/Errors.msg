@@ -2,7 +2,7 @@
 !                                   SKETCH-N                                   !
 !  Nodal Neutron Diffusion Code for Solving Steady-State and Kinetics Problems !
 !              Version 1.0 (c) Slava 2000 e-mail: na.vzimin@na-net.ornl.gov    !
-!      Date & Time of Calculation :  3 March    2018   2:52:57 pm              !
+!      Date & Time of Calculation :  4 April    2018  11:34:39 am              !
 !==============================================================================!
 WARNING:
  Could not find identifier XS_MODL_TYPE in the FILE_INPUT, set set macro cross s

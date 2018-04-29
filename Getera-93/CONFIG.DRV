@@ -8,5 +8,5 @@ BNAB:.\get-93\bin\XE35.MLT
 F11:.\get-93\bin\f11
 
 
-INGET:inputNew\kp1_cen_NotPel.in
-OUTGET:outputNew\kp1_cen_NotPel.out
+INGET:inputFinal\kp1_cen_NotPel.in
+OUTGET:outputFinal\kp1_cen_NotPel.out

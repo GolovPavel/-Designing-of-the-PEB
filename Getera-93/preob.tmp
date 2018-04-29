@@ -13,7 +13,7 @@
     rcel(1,6)=0.39,0.48,
                    ncelsos(1,6)=3,4,
  
-  t=0.6590e+03, 0.5970e+03, 0.5830e+03, 0.5830e+03, 0.5830e+03,
+  t=0.6590e+03, 0.6590e+03, 0.5830e+03, 0.5830e+03, 0.5830e+03,
  0.5830e+03,
  troiz=
  
@@ -23,23 +23,23 @@
  2.327e-02 , 0.0000000 ,
   0.0000000 , 0.0000000 , 4.287e-02 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
-  0.0000000 , 9.347e-05 , 0.0000000 , 0.0000000 , 0.0000000 ,
+  0.0000000 , 9.869e-05 , 0.0000000 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
-  0.0000000 , 1.363e-02 , 0.0000000 , 0.0000000 , 0.0000000 ,
+  0.0000000 , 1.400e-02 , 0.0000000 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
-  0.0000000 , 3.709e-02 , 0.0000000 , 0.0000000 , 0.0179000 ,
- 0.0000000 , 0.0000000 ,
-  0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 ,
- 0.0000000 , 0.0000000 ,
-  0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 ,
- 0.0000000 , 0.0000000 ,
-  0.0000000 , 1.445e-02 , 0.0000000 , 0.0000000 , 1.445e-02 ,
+  0.0000000 , 3.723e-02 , 0.0000000 , 0.0000000 , 0.0179000 ,
  0.0000000 , 0.0000000 ,
   0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
   0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
-  0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 1.963e-03 ,
+  0.0000000 , 1.449e-02 , 0.0000000 , 0.0000000 , 1.445e-02 ,
+ 0.0000000 , 0.0000000 ,
+  0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 ,
+ 0.0000000 , 0.0000000 ,
+  0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 ,
+ 0.0000000 , 0.0000000 ,
+  0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 0.500e-3 ,
  0.0000000 , 0.0000000 ,
   0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 2.082e-03 ,
  0.0000000 , 0.0000000 ,
@@ -47,11 +47,11 @@
  0.0000000 , 0.0520000 ,
   0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0350000 ,
-  0.0000001 , 2.507e-03 , 0.0000000 , 0.0000000 , 0.0000000 ,
+  0.0000001 , 2.348e-03 , 0.0000000 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
-  0.0000000 , 1.157e-03 , 0.0000000 , 0.0000000 , 0.0000000 ,
+  0.0000000 , 1.084e-03 , 0.0000000 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
-  0.0000000 , 7.233e-04 , 0.0000000 , 0.0000000 , 0.0000000 ,
+  0.0000000 , 6.772e-04 , 0.0000000 , 0.0000000 , 0.0000000 ,
  0.0000000 , 0.0000000 ,
  ntcell=1,2,3,4,5,6,
  krat= 51,18,9,6,7,36,
@@ -93,220 +93,208 @@ pu41
 &vvod
 et=10.5e+6,0.,
 &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
-:burn
- &vvod qv=101.5,dtim=1.,
- &end
  
 :burn
- &vvod qv=101.5,dtim=50.,
+ &vvod qv=101.5,dtim=1.,
  &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
- 
 :cont
-:micro
- &vvod
-  et=10.5e+6,2.15,2.15,0.,
+  &end
+:burn
+ &vvod qv=101.5,dtim=1.,
  &end
-:macro
- &vvod
-  et=10.5e+6,2.15,2.15,0.,
+:cont
+  &end
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+:cont
+  &end
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=1.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
  
- &end
-:macro
- &vvod
-  et=10.5e+6,0.,
  
+:burn
+ &vvod qv=101.5,dtim=50.,
  &end
-:macro
- &vvod
-  et=10.5e+6,1e3,1e3,0.,
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
+:burn
+ &vvod qv=101.5,dtim=50.,
+ &end
+:cont
  
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
-:burn
- &vvod qv=101.5,dtim=50.,
- &end
+:stop
 :dina
 &vvod
 et=10.5e+6,0.,
 &end
 :stop
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 

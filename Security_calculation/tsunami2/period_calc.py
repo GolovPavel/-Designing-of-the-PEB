@@ -47,20 +47,19 @@ utils.fill_dict_from_file(data, "input.txt")
 if __name__ == "__main__":
 	cp = cP_calc()
 	ro = ro_w_calc()
-	r = 1.0974e+6
+	r = 1.0974e6
 
 	delta_m = ro * data['V_w'] * (1 - 1 / math.e)
 
-	A = cp * delta_m * (data['tW_boil'] - data['tW_start'])
+	A = cp * ro * data['V_w'] * (data['tW_boil'] - data['tW_start'])
 	B = r * delta_m
-	E = data['Cp'] * 10000 * data['V_fuel'] * (600 - 420)
 	C = A + B
 
 	tau = 0
 
 	while True:
-		tau += 0.001
-		D = data['V_fuel'] * integrate.quad(qV, 0, tau)[0]
+		tau += 0.1
+		D = data['V_az'] * integrate.quad(qV, 0, tau)[0]
 		print("D: {}; C: {}".format(D, C))
 
 		if D >= C:

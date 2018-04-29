@@ -2,19 +2,20 @@ delta_sh: 0.5e-3 m
 lambda_sh: 18 Vt/(m*K)
 lambdaT: 35 Vt/(m*K)
 alpha0: 37800 Vt/(m^2*k)
+ro: 10500 kg/m^3
 r1: 3.4e-3 m
 Cp: 280 J/(kg*K)
-ro: 10000 kg/m^3
-qV0: 196e6 Vt/m^3
-tW: 379 C
+qV0: 101.5e6 Vt/m^3
+tW: 305 C
 
 tW_start: 305 C
-tW_boil: 329 C
-V_w: 5.707e-5 m^3
-V_fuel: 3.424e-5 m^3
-V_cell: 1.038e-4 m^3
+tW_boil: 334 C
 
-tau1: 17.9 sec
-tau2: 15.43 sec
+V_w1: 5.707e-5 m^3
+V_fuel1: 3.424e-5 m^3
+V_cell1: 1.038e-4 m^3
 
-T: 5.25 sec - coolant loss period
+V_w: 0.7 m^3
+V_az: 1.309 m^3
+
+T: 81.41 sec - coolant loss period
