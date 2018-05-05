@@ -4,6 +4,20 @@ from time_calc import qV
 from iapws import IAPWS97
 import math
 
+import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
+import numpy as np
+
+
+def plot_spline(x, y, xlabel, ylabel):
+	f = interp1d(x, y, kind='cubic')
+	x = np.linspace(x[0], x[len(x) - 1], num=40, endpoint=True)
+	plt.plot(x, f(x))
+	plt.grid(True)
+	plt.xlabel(xlabel, fontsize=12)
+	plt.ylabel(ylabel, fontsize=12)
+	plt.show()
+
 
 def cP_calc():
 	tW_start = data['tW_start']
@@ -18,10 +32,12 @@ def cP_calc():
 	for i in range(20):
 		water = IAPWS97(T=temps[i] + 273.0, P=12.7)
 		cp.append(water.cp)
-
+	plot_spline(temps, cp, 'asd', 'asdsad')
 	cp = sum(cp) * interval_len / (tW_boil - tW_start) * 1e3
 
+
 	return cp
+
 
 def ro_w_calc():
 	tW_start = data['tW_start']
@@ -41,6 +57,7 @@ def ro_w_calc():
 
 	return ro
 
+
 data = {}
 utils.fill_dict_from_file(data, "input.txt")
 
@@ -50,6 +67,7 @@ if __name__ == "__main__":
 	r = 1.0974e6
 
 	delta_m = ro * data['V_w'] * (1 - 1 / math.e)
+	# delta_m = ro * 26 * (1 - 1 / math.e)
 
 	A = cp * ro * data['V_w'] * (data['tW_boil'] - data['tW_start'])
 	B = r * delta_m
@@ -58,7 +76,7 @@ if __name__ == "__main__":
 	tau = 0
 
 	while True:
-		tau += 0.1
+		tau += 2
 		D = data['V_az'] * integrate.quad(qV, 0, tau)[0]
 		print("D: {}; C: {}".format(D, C))
 

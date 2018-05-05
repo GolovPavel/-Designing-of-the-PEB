@@ -15,7 +15,7 @@ V_w1: 5.707e-5 m^3
 V_fuel1: 3.424e-5 m^3
 V_cell1: 1.038e-4 m^3
 
-V_w: 0.7 m^3
+V_w: 1.309 m^3
 V_az: 1.309 m^3
 
-T: 81.41 sec - coolant loss period
+T: 180 sec - coolant loss period

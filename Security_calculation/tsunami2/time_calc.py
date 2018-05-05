@@ -100,7 +100,7 @@ if __name__ == "__main__":
 	tau_new = 0
 
 	while True:
-		tau_new += 2
+		tau_new += 0.5
 		qv.append(qV(tau_new) / data['qV0'])
 
 		alpha = alpha_fun(tau_new, T)
@@ -109,10 +109,11 @@ if __name__ == "__main__":
 
 		mu = get_mu(Bi)
 
-		if tau_new < 2500:
-			t_fuel_new = t_fuel_calc(tau_new)
-		else:
-			t_fuel_new = t_fuel[-1] + 5
+		t_fuel_new = t_fuel_calc(tau_new)
+		# if tau_new < 2500:
+		# 	t_fuel_new = t_fuel_calc(tau_new)
+		# else:
+		# 	t_fuel_new = t_fuel[-1] + 5
 
 		print(
 			'tau = {}\nBi = {}.\nMu: {}\ntemp: {}\n' \
