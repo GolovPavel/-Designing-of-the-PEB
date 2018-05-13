@@ -31,33 +31,32 @@ Kud = 1400
 nud = 0.5
 Fz = 14000
 Cxp = 250
-En = 0.125
+En = 0.11
 
 # ---- Незамкнутый топливный цикл ------
-
-
 W = Nel * 8760 * fi * (1 - Kcn) / 1e6
 a = K * B
-Gx = Nel * 365 * fi / (brutto * B)
-G9 = KH * a * Gx * (1 - Ei)
-G9tot = G9 * Tcl
 z = a * KH
+Gx = Nel * 365 * fi / (brutto * B)
+G9 = z * Gx * (1 - Ei)
+G9tot = G9 * Tcl
+
 KBC = (1 - a * 1e-3 - z * 1e-3) * (1 - Ei) ** 3 * (Xk - y) / (Xn - y)
 fxnyc = (Xn - y) / (c - y)
 Gc = fxnyc * Gx * ((1 + Ei) ** 3)
-# deltaG5 = Gx * Xn * 1000 * (1 + Ei)
 deltaG5 = Gc * c * 1000
-KBec = (z * (1 - Ei)) / (Xn * (1 + Ei) - Xk * (1 - Ei))
+KBec = (z * 1e-3 * (1 - Ei)) / (Xn * (1 + Ei) - Xk * (1 - Ei))
 Tk = Go / Gx
-
 Gxtot = Go + Gx * (Tcl - Tk / n)
 Gctot = Gxtot * fxnyc * (1 + Ei) ** 2
 Gy = (fxnyc - 1) * Gx * (1 + Ei) ** 2
 Gytot = Gxtot * Gy / Gx
+
 Vxn = (2 * Xn - 1) * math.log(Xn / (1 - Xn))
 Vy = (2 * y - 1) * math.log(y / (1 - y))
 Vc = (2 * c - 1) * math.log(c / (1 - c))
 nxnyc = Vxn + Vy * (fxnyc - 1) - Vc * fxnyc
+
 Ct = (1 / (W * 1e6)) * (Gc * Cu + Gx * nxnyc * Craz * (1 + Ei) ** 2 + Gx * (1 + Ei) * Cizg + Gx * Cxp)
 Ca = Aren * Kud / (8760 * fi)
 Cz = nud * Fz / (8760 * fi * 1000)
@@ -66,10 +65,7 @@ Ctop = (fxnyc * ((1 + Ei) ** 3) * Cu + nxnyc * ((1 + Ei) ** 2) * Craz + (1 + Ei)
 
 # ---- Замкнутый топливный цикл ------
 Gczm = fxnyc * Gx * ((1 + Ei) ** 3) * (1 - KBC)
-
-# deltaG5zam = Gx * 1000 * (Xn * (1 + Ei) - Xk * (1 - Ei))
 deltaG5zam = Gczm * c * 1000
-KBec = (z * (1 - Ei)) / (Xn * (1 + Ei) - Xk * (1 - Ei))
 f5yc = (0.95 - y) / (c - y)
 V5 = (2 * 0.95 - 1) * math.log(0.95 / (1 - 0.95))
 n5yc = V5 + Vy * (f5yc - 1) - Vc * f5yc
@@ -80,16 +76,17 @@ Vxk = (2 * Xk - 1) * math.log(Xk / (1 - Xk))
 nxnyxk = Vxn + Vy * (fxnyxk - 1) - Vxk * fxnyxk
 Cxk = fxnyxk * Cu + nxnyxk * Craz
 Ctzam = 1 / (W * 1e6) * (Gczm * Cu + Gx * (1 - KBC) * nxnyc * Craz * (1 + Ei) ** 2 + Gx * (1 + Ei) * Cizg + Gx * Cxp \
-                         + Gx * (1 - Ei) * Creg + nxnyxk * Craz * Gx * KBC * (1 + Ei) - b * G9 * 1e-3 * (1 - Ei))
+                         + Gx * (1 - Ei) * Creg + nxnyxk * Craz * Gx * KBC * (1 + Ei) - b * Gx * z * 1e-3)
+Cezam = 1.25 * (1.2 * Ctzam + 4 * Ca + 3.5 * Cz)
 Tc = Tk + Tckl + Txp + Tvyd + 3 * Ti + Tk / n
 
 # ------расчет РЗ---------
-k = 1100
 Tcvn = 3 * Ti + Tk / n
-DOC = Tcvn * Gx * 1000 * (Cxk + b * z)
+DOC = Tcvn * Gx * 1000 * (Cxk + b * z * 1e-3)
 y1 = DOC * 1e-3 / Nel
-RZclose = Ce + En * (y1 + k) / (8760 * fi)
-RZopen = Ce + En * k / (8760 * fi)
+
+RZclose = Cezam + En * (y1 + Kud) / (8760 * fi)
+RZopen = Ce + En * Kud / (8760 * fi)
 
 print('---- Незамкнутый топливный цикл ------')
 print('W = {}*10^6  Мвт*час/год'.format(W))
