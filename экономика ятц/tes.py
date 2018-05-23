@@ -8,12 +8,12 @@ Kud = 1000
 nud = 0.7
 Fz = 14000
 En = 0.11
-trez = 0.25
+trez = 1
 Tcl = 50
 Kut = 1.38
 Zoil = 468.3 #Price of oil fuel
 
-def tes_calc(RZ):
+def tes_calc():
     W = Nel * 8760 * fi * (1 - Kcn)
     Gx = Nel * 8760 * fi * mud * Kut * 1e-3 / 1e5
     Gxtot = Gx * (Tcl - trez)
@@ -33,4 +33,3 @@ def tes_calc(RZ):
     print('Сост. зарплаты Cz: {:.5f} $/КВт*час'.format(Cz))
     print('Себ. топлива: {:.3f} $/КВт*час'.format(Ct))
     print('Себестоимость отпущ. энергии: {:.3f} $/КВт*час'.format(Ce))
-    print('Расчетные затраты ТЭС: {:.6f} $/КВт*час'.format(RZ))
